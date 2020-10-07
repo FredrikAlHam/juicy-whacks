@@ -1,0 +1,128 @@
+{
+    "name": "GameControls",
+    "maps": [
+        {
+            "name": "Whacks",
+            "id": "480ce912-0a4e-4c10-8a4d-243c40183576",
+            "actions": [
+                {
+                    "name": "Whack 1",
+                    "type": "Button",
+                    "id": "fef7ebed-4b2e-4f51-8625-f1308b1781fa",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Whack 2",
+                    "type": "Button",
+                    "id": "5812fe45-9041-47b1-bcdd-5c07d16280ac",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Whack 3",
+                    "type": "Button",
+                    "id": "9707bc15-af8f-491f-91a9-ad3dfe6b7a1b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Whack 4",
+                    "type": "Button",
+                    "id": "288d7833-8eff-4cb7-90ed-ec876f3c5f33",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Whack 5",
+                    "type": "Button",
+                    "id": "230c8546-08ae-405b-aa4b-eacd133ca66a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Whack 6",
+                    "type": "Button",
+                    "id": "c36107e2-35c1-4c68-b878-bf50bc5924a1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c5ee3c0b-0b4e-49a7-a5db-8a38cdbb0316",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Whack 1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7e77ff76-dcfa-4992-b66c-b26ba5cb7e1e",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Whack 2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cbd1e3bc-9aaf-4a7d-8ffb-094111b6cd68",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Whack 3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "de31b548-5750-4257-af69-387f4c1177c3",
+                    "path": "<Keyboard>/j",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Whack 4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1c58f46-9cc5-44c5-a05d-1ef5e7b6b2a3",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Whack 5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce69b216-42cd-4841-8c58-5a8442018b32",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Whack 6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
