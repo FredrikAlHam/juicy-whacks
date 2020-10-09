@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class WhackInput : MonoBehaviour
 {
-    [SerializeField] int maxActiveWhacks;
+    [SerializeField] int maxActiveWhacks = 99;
     int activeWhacks;
 
     internal Controls controls;
