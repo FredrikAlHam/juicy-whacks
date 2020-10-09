@@ -3,10 +3,10 @@
 public class Hole : MonoBehaviour
 {
     [SerializeField] bool isHittable = false;
-    [SerializeField] AudioClip clip;
+    [SerializeField] AudioClip clip = null;
     SpriteRenderer sR;
     [SerializeField] public bool isHit { get; private set; } = false;
-    AudioSource audio = null;
+    new AudioSource audio = null;
     // Start is called before the first frame update
     void Start()
     {

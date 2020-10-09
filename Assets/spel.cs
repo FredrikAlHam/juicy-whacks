@@ -12,7 +12,7 @@ public class spel : MonoBehaviour
     public GameObject nymull;
     public GameObject helst;
     public float range;
-    public Camera camera;
+    public new Camera camera;
     public int score;
     public int liv;
     public float x;
