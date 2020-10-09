@@ -75,7 +75,6 @@ public class WhackInput : MonoBehaviour
         {
             activeWhacks--;
             hole.UnHit();
-            Debug.Log(holeIndex);
         }
     }
 
@@ -108,7 +107,6 @@ public class WhackInput : MonoBehaviour
         holeIndex--;
         Hole hole = Holes.holes[holeIndex].GetComponent<Hole>();
         hole.Hit();
-        Debug.Log(holeIndex);
     }
 
     // Update is called once per frame
