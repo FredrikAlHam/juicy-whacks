@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class WhackInput : MonoBehaviour
 {
-    [SerializeField] GameObject[] holes = new GameObject[6];
     [SerializeField] int maxActiveWhacks;
     int activeWhacks;
 
@@ -73,7 +72,7 @@ public class WhackInput : MonoBehaviour
                 break;
         }
         holeIndex--;
-        Hole hole = holes[holeIndex].GetComponent<Hole>();
+        Hole hole = Holes.holes[holeIndex].GetComponent<Hole>();
         if (hole.isHit)
         {
             activeWhacks--;
@@ -109,7 +108,7 @@ public class WhackInput : MonoBehaviour
                 break;
         }
         holeIndex--;
-        Hole hole = holes[holeIndex].GetComponent<Hole>();
+        Hole hole = Holes.holes[holeIndex].GetComponent<Hole>();
         hole.Hit();
         Debug.Log(holeIndex);
     }
