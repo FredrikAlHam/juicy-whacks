@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 153591722}
   - component: {fileID: 153591721}
   m_Layer: 0
-  m_Name: '## Song Importer ##'
+  m_Name: "\u2588\u2588 Song Importer \u2588\u2588"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1027,7 +1027,7 @@ GameObject:
   - component: {fileID: 1277562337}
   - component: {fileID: 1277562336}
   m_Layer: 0
-  m_Name: '## Song Test Player ##'
+  m_Name: "\u2588\u2588 Song Test Player \u2588\u2588"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
