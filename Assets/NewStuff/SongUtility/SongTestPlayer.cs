@@ -8,58 +8,23 @@ namespace AudioUtilities
     {
         new AudioSource audio = null;
         Controls controls = null;
-        [SerializeField] Beat currentBeat = null;
-        [SerializeField] int currentBeatIndex = 0;
-        public Song CurrentSong { get => currentSong; set { currentSong = value; } }
-
-        Timer beatTimer = null;
-        private Song currentSong = null;
+        SongPlayer songPlayer = null;
 
         // Start is called before the first frame update
         void Start()
         {
+            songPlayer = new SongPlayer();
             controls = new Controls();
             controls.Whacks.Enable();
             audio = GetComponent<AudioSource>();
         }
-        private void OnEnable()
+        public void Play(Song song) //Must be called on main thread
         {
-            beatTimer = new Timer();
-            beatTimer.Elapsed += Beat;
-        }
+            songPlayer = new SongPlayer();
+            songPlayer.Play(song);
+            audio.PlayOneShot(song.clip);
 
-        private void Beat(object sender, ElapsedEventArgs e)
-        {
-            currentBeat = currentSong.beats[currentBeatIndex];
-            Debug.Log(currentBeat.holeIndecies[currentBeatIndex]);
-            currentBeatIndex++;
         }
-#pragma warning disable UNT0006 // Incorrect message signature
-        public void Start(Song song) //Must be called on main thread
-        {
-            Stop();
-            currentBeatIndex = 0;
-            beatTimer.Interval = 60000 / Convert.ToDouble(song.bpm)/*ms in minutes*/;
-            Debug.Log(song.bpm);
-            CurrentSong = song;
-            audio.PlayOneShot(CurrentSong.clip);
-            beatTimer.Start();
-        }
-#pragma warning restore UNT0006 // Incorrect message signature
-
-        public void Stop() //Must be called on main thread
-        {
-            audio.Stop();
-            beatTimer.Stop();
-            currentBeatIndex = 0;
-        }
-
-        private void OnDisable()
-        {
-            beatTimer.Elapsed -= Beat;
-            beatTimer.Dispose();
-        }
-
         // Update is called once per frame
         void Update()
         {
@@ -68,39 +33,80 @@ namespace AudioUtilities
                 return;
             }
             //Plays song of whack key index pressed
-            if (!beatTimer.Enabled)
+            if (!songPlayer.IsPlaying)
             {
-                if (controls.Whacks.Whack1.triggered) Start(SongImporter.Songs[0]);
-                if (controls.Whacks.Whack2.triggered) Start(SongImporter.Songs[1]);
-                if (controls.Whacks.Whack3.triggered) Start(SongImporter.Songs[2]);
-                if (controls.Whacks.Whack4.triggered) Start(SongImporter.Songs[3]);
-                if (controls.Whacks.Whack5.triggered) Start(SongImporter.Songs[4]);
-                if (controls.Whacks.Whack6.triggered) Start(SongImporter.Songs[5]);
-            }
-            if (CurrentSong != null)
-            {
-                if (currentBeatIndex >= CurrentSong.beats.Length)
+                if (audio.isPlaying)
                 {
-                    Stop();
+                    audio.Stop();
                 }
-                else
+                if (controls.Whacks.Whack1.triggered) Play(SongImporter.Songs[0]);
+                if (controls.Whacks.Whack2.triggered) Play(SongImporter.Songs[1]);
+                if (controls.Whacks.Whack3.triggered) Play(SongImporter.Songs[2]);
+                if (controls.Whacks.Whack4.triggered) Play(SongImporter.Songs[3]);
+                if (controls.Whacks.Whack5.triggered) Play(SongImporter.Songs[4]);
+                if (controls.Whacks.Whack6.triggered) Play(SongImporter.Songs[5]);
+            }
+            else
+            {
+                
+                for (int i = 0; i < Holes.holes.Length; i++)
                 {
-                    for (int i = 0; i < Holes.holes.Length; i++)
+                    Hole hole = Holes.holes[i].GetComponent<Hole>();
+                    if (songPlayer.Beat.holeIndecies[i] > 0)
                     {
-
-                        Hole hole = Holes.holes[i].GetComponent<Hole>();
-                        if (currentBeat.holeIndecies[i] > 0)
-                        {
-                            hole.Hit();
-                        }
-                        else
-                        {
-                            hole.UnHit();
-                        }
+                        hole.Hit();
+                    }
+                    else
+                    {
+                        hole.UnHit();
                     }
                 }
             }
         }
+    }
+
+    public class SongPlayer
+    {
+        public Beat Beat { get; private set; } = new Beat() { holeIndecies = new int[] { 0, 0, 0, 0, 0, 0 } };
+        public bool IsPlaying { get; private set; } = false;
+        private Song song = null;
+        public int BeatIndex { get; private set; } = 0;
+        private Timer beatTimer = new Timer();
+
+
+        public void Play(Song song)
+        {
+            this.song = song;
+            Play();
+        }
+        public void Play()
+        {
+            BeatIndex = 0;
+            beatTimer.Interval = 60000 / Convert.ToDouble(song.bpm)/*ms in minutes*/;
+            IsPlaying = true;
+            beatTimer.Elapsed += BeatTimer_Elapsed;
+            beatTimer.Start();
+        }
+
+        private void BeatTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            if (BeatIndex >= song.beats.Length)
+            {
+                IsPlaying = false;
+                beatTimer.Stop();
+            }
+            Beat = song.beats[BeatIndex];
+            BeatIndex++;
+        }
+        public SongPlayer(Song song)
+        {
+            this.song = song;
+        }
+        public SongPlayer()
+        {
+
+        }
+
     }
 
 }
