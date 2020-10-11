@@ -1047,7 +1047,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1141,9 +1141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2427fd9434b55440925c5978e237726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentBeat:
-    holeIndecies: 000000000000000000000000000000000000000000000000
-  currentBeatIndex: 0
 --- !u!4 &1277562338
 Transform:
   m_ObjectHideFlags: 0

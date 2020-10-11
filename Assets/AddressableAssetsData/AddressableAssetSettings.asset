@@ -27,7 +27,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3dd7b5bb60a2b9a40ad8b001549d4353, type: 2}
   - {fileID: 11400000, guid: d5974387cac1acf48b77e6befc1bb0c7, type: 2}
   - {fileID: 11400000, guid: f146513e30231464b9c086ab10af5650, type: 2}
-  - {fileID: 11400000, guid: 0d913714a5de9e0428d21f14be58288a, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -69,6 +68,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - Song
+    - MenuAudio
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 2655f1ab9dfa47a418ef89cead19b31a, type: 2}
