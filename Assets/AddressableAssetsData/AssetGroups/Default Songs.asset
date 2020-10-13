@@ -16,14 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 4eaa41191109f8340a7e7fdee6ff0501
-  m_SerializeEntries:
-  - m_GUID: c56af0f087dbf174baae67f0430ecdb7
-    m_Address: Assets/Songs/Default/Bruh.mp3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - MenuAudio
-    m_MainAsset: {fileID: 8300000, guid: c56af0f087dbf174baae67f0430ecdb7, type: 3}
-    m_TargetAsset: {fileID: 8300000, guid: c56af0f087dbf174baae67f0430ecdb7, type: 3}
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 380f568266f45614086d59254d8e696a, type: 2}
   m_SchemaSet:
