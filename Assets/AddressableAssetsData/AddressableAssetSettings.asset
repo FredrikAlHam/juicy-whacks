@@ -68,6 +68,7 @@ MonoBehaviour:
   m_LabelTable:
     m_LabelNames:
     - Song
+    - MenuAudio
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 2655f1ab9dfa47a418ef89cead19b31a, type: 2}

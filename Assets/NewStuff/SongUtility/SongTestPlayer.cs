@@ -17,6 +17,7 @@ namespace AudioUtilities
             controls = new Controls();
             controls.Whacks.Enable();
             audio = GetComponent<AudioSource>();
+            
         }
         public void Play(Song song) //Must be called on main thread
         {
@@ -28,6 +29,11 @@ namespace AudioUtilities
         // Update is called once per frame
         void Update()
         {
+            if (audio.clip == null && SongImporter.Ready)
+            {
+                audio.clip = SongImporter.MenuAudioClips[0];
+                audio.Play();
+            }
             if (!SongImporter.Ready)
             {
                 return;
@@ -37,7 +43,7 @@ namespace AudioUtilities
             {
                 if (audio.isPlaying)
                 {
-                    audio.Stop();
+                    //audio.Stop();
                 }
                 if (controls.Whacks.Whack1.triggered) Play(SongImporter.Songs[0]);
                 if (controls.Whacks.Whack2.triggered) Play(SongImporter.Songs[1]);
