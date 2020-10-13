@@ -26,9 +26,9 @@ MonoBehaviour:
   m_RedirectLimit: -1
   m_RetryCount: 0
   m_BuildPath:
-    m_Id: 9e95d1164845d2e40bc8f0302df031c4
+    m_Id: Songs/[BuildTarget]
   m_LoadPath:
-    m_Id: 9e95d1164845d2e40bc8f0302df031c4
+    m_Id: Songs
   m_BundleMode: 0
   m_AssetBundleProviderType:
     m_AssemblyName: Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
