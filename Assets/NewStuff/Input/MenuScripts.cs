@@ -28,23 +28,24 @@ public class MenuScripts : MonoBehaviour
         controls = new Controls();
         controls.UI.Enable();
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
         //mixer.SetFloat("AudioVol", Mathf.Log10(PlayerPrefs.GetFloat("AudioVolume", 0.75f)) * 20);
         //mixerTwo.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume", 0.75f)) * 20);
     }
-
+   
     public void QuitGame() //This function closes the application when triggered
     {
         Application.Quit();
     }
 
-    private void Update()
+    public void Update()
     {
         //if the player presses escape...
         if (controls.UI.Pause.triggered)
         {
             //then the function "EscMenu" will be started
             EscMenu();
+            WhackInput.controls.Disable();
         }
 
     }
@@ -52,14 +53,22 @@ public class MenuScripts : MonoBehaviour
     //this function loads the "Options" scene
     public void GoToOptions()
     {
-        SceneManager.LoadScene("OptionsMenu");
+
+        //if "volumeMenu" is not already loaded
+        if(!SceneManager.GetSceneByName("volumeMenu").isLoaded)
+        {
+
+            //Loads scene as an added scener (so the previous one is still loaded, and active in the background)
+            SceneManager.LoadSceneAsync("volumeMenu", LoadSceneMode.Additive);
+        }
+
 
     }
 
     //this function loads the "MainMenu" scene again
     public void BackToMainMenu()
     {
-    SceneManager.LoadScene("Menu");
+    SceneManager.LoadScene("menu");
 
     }
 
@@ -83,13 +92,15 @@ public class MenuScripts : MonoBehaviour
             {
                 //the level assigned to unloadLevelName will be unloaded
                 SceneManager.UnloadSceneAsync(unloadLevelName);
+                WhackInput.controls.Enable();
             }
         }
     }
     //Unloads the EscMenu when called
     public void Back()
     {
-        SceneManager.UnloadSceneAsync("EscMenu");
+        //SceneManager.UnloadSceneAsync("pauseMenu");
+        SceneManager.UnloadSceneAsync(unloadLevelName);
     }
 
 }

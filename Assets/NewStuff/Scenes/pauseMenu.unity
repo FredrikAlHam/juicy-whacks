@@ -264,7 +264,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 997272201}
-        m_MethodName: PlayGame
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -440,9 +440,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1a3496abe03c848976a75afe6db466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: pauseMenu
-  unloadScene: 0
-  unloadLevelName: 
+  levelName: 
+  unloadScene: 1
+  unloadLevelName: pauseMenu
   loadingLevel: 0
 --- !u!4 &997272202
 Transform:
@@ -784,7 +784,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 997272201}
-        m_MethodName: QuitGame
+        m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
