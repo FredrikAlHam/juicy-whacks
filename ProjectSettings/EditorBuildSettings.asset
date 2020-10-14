@@ -4,7 +4,19 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/NewStuff/Scenes/menu.unity
+    guid: 1659e7c9c72fd924aa2d4feb4c516f3b
+  - enabled: 1
+    path: Assets/NewStuff/Scenes/game.unity
+    guid: 8aae92f2c09d7e241babc7719b06fce7
+  - enabled: 1
+    path: Assets/NewStuff/Scenes/pauseMenu.unity
+    guid: cd00f7a3d2c38f942a4a9d4a3da834c7
+  - enabled: 1
+    path: Assets/NewStuff/Scenes/volumeMenu.unity
+    guid: b60301665d1f4c54fa7659c01f6d577c
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: d71dc49c95ca76945b6b1f9e06c4d7a9,
       type: 2}
