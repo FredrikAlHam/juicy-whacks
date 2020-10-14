@@ -6,7 +6,7 @@ public class WhackInput : MonoBehaviour
     [SerializeField] int maxActiveWhacks = 99;
     int activeWhacks;
 
-    internal Controls controls;
+    public static Controls controls;
 
     void OnEnable()
     {
