@@ -15,6 +15,7 @@ public class MenuScripts : MonoBehaviour
     private string unloadLevelName;
     [SerializeField]
     private bool loadingLevel;
+    public Animator anime;
 
     public static bool playing;
 
@@ -25,6 +26,11 @@ public class MenuScripts : MonoBehaviour
 
     public void Start() //in start playerpref-variables for the volume options are loaded
     {
+        //när bäver kommer upp så ska det här hända. Det här startar animatorn med cirkeln
+        anime.SetBool("on", true);
+        //stänger av animatorn, bör hända när yxan nuddar bävern
+        //anime.SetBool("on", false);
+
         controls = new Controls();
         controls.UI.Enable();
         Cursor.visible = false;
@@ -46,6 +52,7 @@ public class MenuScripts : MonoBehaviour
             //then the function "EscMenu" will be started
             EscMenu();
             WhackInput.controls.Disable();
+
         }
 
     }
