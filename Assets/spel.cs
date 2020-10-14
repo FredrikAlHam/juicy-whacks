@@ -75,7 +75,7 @@ public class spel : MonoBehaviour
         {
             var v3 = Input.mousePosition;
             v3.z = 10.0f;
-            v3 = Camera.main.ScreenToWorldPoint(v3);
+           // v3 = Camera.main.ScreenToWorldPoint(v3);
             print(Vector3.Distance(nymull.transform.position, v3));
             for (int i = 0; i < spawns.Length; i++)
             {
