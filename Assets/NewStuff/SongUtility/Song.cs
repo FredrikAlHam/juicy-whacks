@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -22,6 +23,19 @@ namespace AudioUtilities
         public void Log()
         {
             Debug.Log(JsonUtility.ToJson(this));
+
+        }
+
+        public List<int> GetIntArray(int i)
+        {
+            List<int> ints = new List<int>();
+            foreach (Beat beat in beats)
+            {
+                //Debug.Log(beat.holeIndecies[i] + " in " + i);
+                ints.Add(beat.holeIndecies[i]);
+            }
+
+            return ints;
 
         }
     }
