@@ -27,7 +27,7 @@ public class MenuScripts : MonoBehaviour
     public void Start() //in start playerpref-variables for the volume options are loaded
     {
         //när bäver kommer upp så ska det här hända. Det här startar animatorn med cirkeln
-        anime.SetBool("on", true);
+        //anime.SetBool("on", true);
         //stänger av animatorn, bör hända när yxan nuddar bävern
         //anime.SetBool("on", false);
 
