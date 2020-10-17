@@ -71,7 +71,7 @@ public class WhackInput : MonoBehaviour
         }
         holeIndex--;
         Hole hole = Holes.holes[holeIndex].GetComponent<Hole>();
-        if (hole.isHit)
+        if (hole.IsHit)
         {
             activeWhacks--;
             hole.UnHit();
