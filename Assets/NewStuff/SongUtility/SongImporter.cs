@@ -7,6 +7,7 @@ public class SongImporter : MonoBehaviour
 {
     public static List<Song> Songs { get; private set; } = new List<Song>();
     public static List<AudioClip> MenuAudioClips { get; private set; } = new List<AudioClip>();
+
     public static bool Ready { get; private set; } = false;
     // Start is called before the first frame update
     void Start()
@@ -19,10 +20,14 @@ public class SongImporter : MonoBehaviour
          {
              foreach (Song song in objs.Result)
              {
+                 Debug.Log($"Found song {song.songName}");
                  Songs.Add(song);
              }
-             if (x) Ready = true; else x = true;
-             Ready = true;
+             if (x)
+             {
+                 Ready = true;
+             }
+             else x = true;
          };
         //Gets AudioClips for menu music
         Addressables.LoadAssetsAsync<AudioClip>("MenuAudio", null).Completed += objs =>
@@ -31,7 +36,11 @@ public class SongImporter : MonoBehaviour
              {
                  MenuAudioClips.Add(aC);
              }
-             if (x) Ready = true; else x = true;
+             if (x)
+             {
+                 Ready = true;
+             }
+             else x = true;
          };
 
 
