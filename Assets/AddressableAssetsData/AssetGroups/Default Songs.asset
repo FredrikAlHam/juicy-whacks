@@ -17,11 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4eaa41191109f8340a7e7fdee6ff0501
   m_SerializeEntries:
-  - m_GUID: 4e6f30cd0959b314781f7f02f3173abf
-    m_Address: Assets/Songs/Default/Bruh (online-audio-converter.com).mp3
+  - m_GUID: 04e7c2da4c23bf24a9810b511d81d040
+    m_Address: Assets/Songs/Default/ExportFile_EDM_Song_for_Game_-_FinalVersionPerhaps_.m4a_online-audio-converter.com.mp3
     m_ReadOnly: 0
     m_SerializedLabels:
-    - MenuAudio
+    - Song
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
   - m_GUID: 732aa7fd7204cba4d8f6e9bb500ac793
@@ -31,6 +31,13 @@ MonoBehaviour:
     - Song
     m_MainAsset: {fileID: 0}
     m_TargetAsset: {fileID: 0}
+  - m_GUID: 9cac6e57378577246b95a15edf7a081e
+    m_Address: Assets/Songs/Default/MenyMusik_2.0_NonCompressed (online-audio-converter.com).mp3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - MenuAudio
+    m_MainAsset: {fileID: 8300000, guid: 9cac6e57378577246b95a15edf7a081e, type: 3}
+    m_TargetAsset: {fileID: 8300000, guid: 9cac6e57378577246b95a15edf7a081e, type: 3}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 380f568266f45614086d59254d8e696a, type: 2}
   m_SchemaSet:
