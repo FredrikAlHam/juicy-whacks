@@ -17,13 +17,6 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 4eaa41191109f8340a7e7fdee6ff0501
   m_SerializeEntries:
-  - m_GUID: 04e7c2da4c23bf24a9810b511d81d040
-    m_Address: Assets/Songs/Default/ExportFile_EDM_Song_for_Game_-_FinalVersionPerhaps_.m4a_online-audio-converter.com.mp3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Song
-    m_MainAsset: {fileID: 0}
-    m_TargetAsset: {fileID: 0}
   - m_GUID: 732aa7fd7204cba4d8f6e9bb500ac793
     m_Address: Assets/Songs/Default/Song.asset
     m_ReadOnly: 0
