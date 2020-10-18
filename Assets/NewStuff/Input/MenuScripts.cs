@@ -51,8 +51,11 @@ public class MenuScripts : MonoBehaviour
         {
             //then the function "EscMenu" will be started
             EscMenu();
-            WhackInput.controls.Disable();
 
+        }
+        if (controls.UI.Pause.triggered && SceneManager.GetSceneByName("pauseMenu").isLoaded)
+        {
+            WhackInput.controls.Disable();
         }
         if (controls.UI.Pause.triggered &&  SceneManager.GetSceneByName("EndCredits").isLoaded)
         {
@@ -121,6 +124,7 @@ public class MenuScripts : MonoBehaviour
                 //if unloadscene is true and the level assigned to unloadLevelName is loaded then...
                 if (unloadScene && SceneManager.GetSceneByName(unloadLevelName).isLoaded)
             {
+
                 //the level assigned to unloadLevelName will be unloaded
                 SceneManager.UnloadSceneAsync(unloadLevelName);
                 WhackInput.controls.Enable();
