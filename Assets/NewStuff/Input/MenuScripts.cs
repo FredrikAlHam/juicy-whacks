@@ -47,12 +47,17 @@ public class MenuScripts : MonoBehaviour
     public void Update()
     {
         //if the player presses escape...
-        if (controls.UI.Pause.triggered)
+        if (controls.UI.Pause.triggered && !SceneManager.GetSceneByName("EndCredits").isLoaded)
         {
             //then the function "EscMenu" will be started
             EscMenu();
             WhackInput.controls.Disable();
 
+        }
+        if (controls.UI.Pause.triggered &&  SceneManager.GetSceneByName("EndCredits").isLoaded)
+        {
+            SceneManager.LoadSceneAsync("menu");
+            //SceneManager.LoadSceneAsync("menu");
         }
 
     }
@@ -93,7 +98,7 @@ public class MenuScripts : MonoBehaviour
     //this function loads the "EndCredits" scene
     public void CreditsScene()
     {
-        SceneManager.LoadScene("EndCredits");
+        SceneManager.LoadSceneAsync("EndCredits");
 
     }
 
@@ -112,8 +117,9 @@ public class MenuScripts : MonoBehaviour
             //Loads scene as an added scener (so the previous one is still loaded, and active in the background)
             SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
             loadingLevel = true;
-            //if unloadscene is true and the level assigned to unloadLevelName is loaded then...
-            if (unloadScene && SceneManager.GetSceneByName(unloadLevelName).isLoaded)
+
+                //if unloadscene is true and the level assigned to unloadLevelName is loaded then...
+                if (unloadScene && SceneManager.GetSceneByName(unloadLevelName).isLoaded)
             {
                 //the level assigned to unloadLevelName will be unloaded
                 SceneManager.UnloadSceneAsync(unloadLevelName);
