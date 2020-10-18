@@ -78,6 +78,24 @@ public class MenuScripts : MonoBehaviour
     SceneManager.LoadScene("menu");
 
     }
+    //this function loads the "gameoverDeath" scene
+    public void GameOverDeath()
+    {
+        SceneManager.LoadScene("gameOverDeath");
+
+    }
+    //this function loads the "gameoverWin" scene
+    public void GameOverWin()
+    {
+        SceneManager.LoadScene("gameOverWin");
+
+    }
+    //this function loads the "EndCredits" scene
+    public void CreditsScene()
+    {
+        SceneManager.LoadScene("EndCredits");
+
+    }
 
     //This function starts the game by loading the first "Level" scene
     public void PlayGame()
