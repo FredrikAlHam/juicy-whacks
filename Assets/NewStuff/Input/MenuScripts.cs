@@ -25,8 +25,10 @@ public class MenuScripts : MonoBehaviour
     public void Update()
     {
         //if the player presses space...
+
         //can also be written as (controls.UI.Pause.triggered)
-        //        if (controls.UI.Pause.triggered)
+        //if (controls.UI.Pause.triggered)
+
         if (controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started)
         {
             //slower is used to slow down the scene swithching
