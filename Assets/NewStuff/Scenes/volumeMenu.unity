@@ -150,10 +150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1a3496abe03c848976a75afe6db466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 
-  unloadScene: 1
-  unloadLevelName: volumeMenu
-  loadingLevel: 0
 --- !u!4 &629720831
 Transform:
   m_ObjectHideFlags: 0
@@ -517,7 +513,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 629720830}
-        m_MethodName: Back
+        m_MethodName: VolumeBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -718,7 +714,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Back
+  m_Text: 'BACK
 
 '
 --- !u!222 &2100962460
