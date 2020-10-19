@@ -275,7 +275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Start
+  m_Text: 'PLAY
 
 '
 --- !u!222 &40978112
@@ -355,9 +355,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Credits
-
-'
+  m_Text: CREDITS
 --- !u!222 &251085569
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -378,7 +376,7 @@ GameObject:
   - component: {fileID: 493814779}
   - component: {fileID: 493814778}
   m_Layer: 5
-  m_Name: TItel
+  m_Name: Title "Cleave a Beaver"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -457,7 +455,7 @@ GameObject:
   - component: {fileID: 555672711}
   - component: {fileID: 555672710}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +525,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1861907345}
-        m_MethodName: PlayGame
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -657,7 +655,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1861907345}
-        m_MethodName: GoToOptions
+        m_MethodName: Volume
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -888,7 +886,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1861907345}
-        m_MethodName: QuitGame
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1087,9 +1085,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Volume
-
-'
+  m_Text: VOLUME
 --- !u!222 &1371682263
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1259,9 +1255,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Quit
-
-'
+  m_Text: QUIT
 --- !u!222 &1477621800
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1434,7 +1428,7 @@ GameObject:
   - component: {fileID: 1861907346}
   - component: {fileID: 1861907345}
   m_Layer: 0
-  m_Name: Script
+  m_Name: MenuScript
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1452,11 +1446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1a3496abe03c848976a75afe6db466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: 
-  unloadScene: 0
-  unloadLevelName: 
-  loadingLevel: 0
-  anime: {fileID: 608274566}
 --- !u!4 &1861907346
 Transform:
   m_ObjectHideFlags: 0
@@ -1658,7 +1647,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1861907345}
-        m_MethodName: CreditsScene
+        m_MethodName: EndCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

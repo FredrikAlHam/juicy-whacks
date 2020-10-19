@@ -6,137 +6,144 @@ using UnityEngine.SceneManagement;
 
 public class MenuScripts : MonoBehaviour
 {
-    //Harriet's Script
-    [SerializeField]
-    private string levelName;
-    [SerializeField]
-    private bool unloadScene;
-    [SerializeField]
-    private string unloadLevelName;
-    [SerializeField]
-    private bool loadingLevel;
-    public Animator anime;
-
-    public static bool playing;
-
-    //public AudioMixer mixerTwo;
-    //public AudioMixer mixer;
-
+    
+    //Declares that a pair of Controls named "controls" will be used, they are currently nothing.
     Controls controls = null;
 
-    public void Start() //in start playerpref-variables for the volume options are loaded
-    {
-        //när bäver kommer upp så ska det här hända. Det här startar animatorn med cirkeln
-        //anime.SetBool("on", true);
-        //stänger av animatorn, bör hända när yxan nuddar bävern
-        //anime.SetBool("on", false);
+    //This bool is used so that holding space cant switch beteen the "pause" and "game" scene endlessly fast - it forces you to repress space.. hopefully
+    public static bool slower = false;
 
+
+    public void Start() 
+    {
+        //Enables the controls.
         controls = new Controls();
         controls.UI.Enable();
-        Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-        //mixer.SetFloat("AudioVol", Mathf.Log10(PlayerPrefs.GetFloat("AudioVolume", 0.75f)) * 20);
-        //mixerTwo.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume", 0.75f)) * 20);
-    }
-   
-    public void QuitGame() //This function closes the application when triggered
-    {
-        Application.Quit();
+       
     }
 
     public void Update()
     {
-        //if the player presses escape...
-        if (controls.UI.Pause.triggered && !SceneManager.GetSceneByName("EndCredits").isLoaded)
+        //if the player presses space...
+        if (controls.UI.Pause.triggered)
         {
-            //then the function "EscMenu" will be started
-            EscMenu();
+            //changes slower
+            slower = !slower;
 
+            #region if game is loaded
+            //and the scene "game" is loaded...
+            if (SceneManager.GetSceneByName("game").isLoaded)
+            {
+                //and neither "pause" or "volume" is loaded...
+                if (slower && !SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
+                {
+                    //open the pause scene additionally.
+                    SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+
+                }
+
+                //and "pause" is loaded...
+                if (!slower && SceneManager.GetSceneByName("PauseMenu").isLoaded && slower)
+                {
+                    //close pause.
+                    SceneManager.UnloadSceneAsync("PauseMenu");
+
+                }
+                //and volume is loaded...
+                if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
+                {
+                    //open pause additionaly.
+                    SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+                    //close volume.
+                    SceneManager.UnloadSceneAsync("VolumeMenu");
+
+                }
+            }
+            #endregion
+
+            #region else
+            //and the scene "VolumeMenu" is loaded...
+            if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
+            {
+                //load MainMenu.
+                SceneManager.LoadScene("MainMenu");
+            }
+
+            //and the scene "EndCredits" is loaded...
+            if (SceneManager.GetSceneByName("EndCredits").isLoaded)
+            {
+                //load MainMenu.
+                SceneManager.LoadScene("MainMenu");
+            }
+            #endregion
         }
-        if (controls.UI.Pause.triggered && SceneManager.GetSceneByName("pauseMenu").isLoaded)
-        {
-            WhackInput.controls.Disable();
-        }
-        if (controls.UI.Pause.triggered &&  SceneManager.GetSceneByName("EndCredits").isLoaded)
-        {
-            SceneManager.LoadSceneAsync("menu");
-            //SceneManager.LoadSceneAsync("menu");
-        }
-
     }
 
-    //this function loads the "Options" scene
-    public void GoToOptions()
+    #region functions for the MainMenu
+    //This function loads the "game" scene.
+    public void Play()
     {
-
-        //if "volumeMenu" is not already loaded
-        if(!SceneManager.GetSceneByName("volumeMenu").isLoaded)
-        {
-
-            //Loads scene as an added scener (so the previous one is still loaded, and active in the background)
-            SceneManager.LoadSceneAsync("volumeMenu", LoadSceneMode.Additive);
-        }
-
-
+        SceneManager.LoadSceneAsync("game");
     }
-
-    //this function loads the "MainMenu" scene again
-    public void BackToMainMenu()
+    //This function loads the "VolumeMenu" scene.
+    public void Volume()
     {
-    SceneManager.LoadScene("menu");
-
+        SceneManager.LoadSceneAsync("VolumeMenu");
     }
-    //this function loads the "gameoverDeath" scene
-    public void GameOverDeath()
+    //This function closes the application when triggered.
+    public void Quit()
     {
-        SceneManager.LoadScene("gameOverDeath");
-
+        Application.Quit();
     }
-    //this function loads the "gameoverWin" scene
-    public void GameOverWin()
-    {
-        SceneManager.LoadScene("gameOverWin");
-
-    }
-    //this function loads the "EndCredits" scene
-    public void CreditsScene()
+    //This function loads the "EndCredits" scene.
+    public void EndCredits()
     {
         SceneManager.LoadSceneAsync("EndCredits");
-
     }
+    #endregion
 
-    //This function starts the game by loading the first "Level" scene
-    public void PlayGame()
+    #region functions for the VolumeMenu
+    public void VolumeBack()
     {
-        SceneManager.LoadScene("game");
-    }
-
-
-    public void EscMenu() //prevents the game from unloading WHEN THE ESC MENU IS LOADED
-    {
-        //if the scene assigned to the variable LevelName is not already loaded then...
-        if (!SceneManager.GetSceneByName(levelName).isLoaded)
+        //if the "game" scene is loaded
+        if (SceneManager.GetSceneByName("game").isLoaded)
         {
-            //Loads scene as an added scener (so the previous one is still loaded, and active in the background)
-            SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
-            loadingLevel = true;
-
-                //if unloadscene is true and the level assigned to unloadLevelName is loaded then...
-                if (unloadScene && SceneManager.GetSceneByName(unloadLevelName).isLoaded)
-            {
-
-                //the level assigned to unloadLevelName will be unloaded
-                SceneManager.UnloadSceneAsync(unloadLevelName);
-                WhackInput.controls.Enable();
-            }
+            //open pause additionaly.
+            SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+            //unload volume scene.
+            SceneManager.UnloadSceneAsync("VolumeMenu");
+        }
+        else
+        {
+            //load main menu scene.
+            SceneManager.LoadSceneAsync("MainMenu");
         }
     }
-    //Unloads the EscMenu when called
-    public void Back()
+    #endregion
+
+    #region functions for the PauseMenu
+    //This function unloads the "PauseMenu" scene.
+    public void UnPause()
     {
-        //SceneManager.UnloadSceneAsync("pauseMenu");
-        SceneManager.UnloadSceneAsync(unloadLevelName);
+        SceneManager.UnloadSceneAsync("PauseMenu");
     }
+    //This function loads the "VolumeMenu" scene additionaly.
+    public void VolumeAdd()
+    {
+        SceneManager.LoadSceneAsync("VolumeMenu", LoadSceneMode.Additive);
+    }
+    //This function loads the "PauseMenu" scene additionaly and unloads the "VolumeMenu"
+    public void VolumeToPause()
+    {
+        SceneManager.UnloadSceneAsync("VolumeMenu");
+        SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+    }
+    //This function loads the "MainMenu" scene.
+    public void MainMenu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
+    }
+    #endregion
 
 }
 
