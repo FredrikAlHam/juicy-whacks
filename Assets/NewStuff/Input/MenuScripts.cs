@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class MenuScripts : MonoBehaviour
+
+//playing sounds when buttons are selected through keys uses ISelectHandler
+public class MenuScripts : MonoBehaviour, ISelectHandler
 {
     
     //Declares that a pair of Controls named "controls" will be used, they are currently nothing.
@@ -12,6 +15,13 @@ public class MenuScripts : MonoBehaviour
 
     //This bool is used so that holding space cant switch beteen the "pause" and "game" scene endlessly fast - it forces you to repress space.. hopefully
     public static bool slower = false;
+
+    //Sounds
+    [SerializeField]
+    private AudioSource SwitchfxAudio;
+    [SerializeField]
+    private AudioSource ClickfxAudio;
+
 
 
     public void Start() 
@@ -151,6 +161,17 @@ public class MenuScripts : MonoBehaviour
     }
     #endregion
 
+
+
+    //Sounds
+    public void OnSelect(BaseEventData eventData)
+    {
+        SwitchfxAudio.Play();
+    }
+    public void OnClick()
+    {
+        ClickfxAudio.Play();
+    }
 }
 
 
