@@ -47,12 +47,20 @@ public class MenuScripts : MonoBehaviour
     public void Update()
     {
         //if the player presses escape...
-        if (controls.UI.Pause.triggered)
+        if (controls.UI.Pause.triggered && !SceneManager.GetSceneByName("EndCredits").isLoaded)
         {
             //then the function "EscMenu" will be started
             EscMenu();
-            WhackInput.controls.Disable();
 
+        }
+        if (controls.UI.Pause.triggered && SceneManager.GetSceneByName("pauseMenu").isLoaded)
+        {
+            WhackInput.controls.Disable();
+        }
+        if (controls.UI.Pause.triggered &&  SceneManager.GetSceneByName("EndCredits").isLoaded)
+        {
+            SceneManager.LoadSceneAsync("menu");
+            //SceneManager.LoadSceneAsync("menu");
         }
 
     }
@@ -78,6 +86,24 @@ public class MenuScripts : MonoBehaviour
     SceneManager.LoadScene("menu");
 
     }
+    //this function loads the "gameoverDeath" scene
+    public void GameOverDeath()
+    {
+        SceneManager.LoadScene("gameOverDeath");
+
+    }
+    //this function loads the "gameoverWin" scene
+    public void GameOverWin()
+    {
+        SceneManager.LoadScene("gameOverWin");
+
+    }
+    //this function loads the "EndCredits" scene
+    public void CreditsScene()
+    {
+        SceneManager.LoadSceneAsync("EndCredits");
+
+    }
 
     //This function starts the game by loading the first "Level" scene
     public void PlayGame()
@@ -94,9 +120,11 @@ public class MenuScripts : MonoBehaviour
             //Loads scene as an added scener (so the previous one is still loaded, and active in the background)
             SceneManager.LoadSceneAsync(levelName, LoadSceneMode.Additive);
             loadingLevel = true;
-            //if unloadscene is true and the level assigned to unloadLevelName is loaded then...
-            if (unloadScene && SceneManager.GetSceneByName(unloadLevelName).isLoaded)
+
+                //if unloadscene is true and the level assigned to unloadLevelName is loaded then...
+                if (unloadScene && SceneManager.GetSceneByName(unloadLevelName).isLoaded)
             {
+
                 //the level assigned to unloadLevelName will be unloaded
                 SceneManager.UnloadSceneAsync(unloadLevelName);
                 WhackInput.controls.Enable();

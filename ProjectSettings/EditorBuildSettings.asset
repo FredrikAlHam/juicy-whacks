@@ -17,6 +17,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/NewStuff/Scenes/volumeMenu.unity
     guid: b60301665d1f4c54fa7659c01f6d577c
+  - enabled: 1
+    path: Assets/NewStuff/Scenes/loseMenu.unity
+    guid: ccac92d70dda19240bdae55a6eeafd69
+  - enabled: 1
+    path: Assets/NewStuff/Scenes/winMenu.unity
+    guid: ab9d52b463b1647488fe723f08b1aa26
+  - enabled: 1
+    path: Assets/NewStuff/Scenes/EndCredits.unity
+    guid: 1037c20337f2a614a9acf82b67d56228
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: d71dc49c95ca76945b6b1f9e06c4d7a9,
       type: 2}
