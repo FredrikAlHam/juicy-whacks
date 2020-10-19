@@ -11,7 +11,7 @@ public class MenuScripts : MonoBehaviour
     Controls controls = null;
 
     //This bool is used so that holding space cant switch beteen the "pause" and "game" scene endlessly fast - it forces you to repress space.. hopefully
-    bool slower = false;
+    public static bool slower = false;
 
 
     public void Start() 
@@ -27,21 +27,27 @@ public class MenuScripts : MonoBehaviour
         //if the player presses space...
         if (controls.UI.Pause.triggered)
         {
+            //changes slower
+            slower = !slower;
+
             #region if game is loaded
             //and the scene "game" is loaded...
             if (SceneManager.GetSceneByName("game").isLoaded)
             {
                 //and neither "pause" or "volume" is loaded...
-                if (!SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
+                if (slower && !SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
                 {
                     //open the pause scene additionally.
                     SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+
                 }
+
                 //and "pause" is loaded...
-                if (SceneManager.GetSceneByName("PauseMenu").isLoaded)
+                if (!slower && SceneManager.GetSceneByName("PauseMenu").isLoaded && slower)
                 {
                     //close pause.
                     SceneManager.UnloadSceneAsync("PauseMenu");
+
                 }
                 //and volume is loaded...
                 if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
