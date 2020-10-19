@@ -25,29 +25,33 @@ public class MenuScripts : MonoBehaviour
     public void Update()
     {
         //if the player presses space...
-        if (controls.UI.Pause.triggered)
+        //can also be written as (controls.UI.Pause.triggered)
+        //        if (controls.UI.Pause.triggered)
+        if (controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started)
         {
-            //changes slower
-            slower = !slower;
+            //slower is used to slow down the scene swithching
+            //slower = !slower;
 
             #region if game is loaded
             //and the scene "game" is loaded...
             if (SceneManager.GetSceneByName("game").isLoaded)
             {
                 //and neither "pause" or "volume" is loaded...
-                if (slower && !SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
+                if (!SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
                 {
                     //open the pause scene additionally.
                     SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
-
+                    //changes slwoer
+                   // slower = !slower;
                 }
 
                 //and "pause" is loaded...
-                if (!slower && SceneManager.GetSceneByName("PauseMenu").isLoaded && slower)
+                if (SceneManager.GetSceneByName("PauseMenu").isLoaded && slower)
                 {
                     //close pause.
                     SceneManager.UnloadSceneAsync("PauseMenu");
-
+                    //changes slower
+                   // slower = !slower;
                 }
                 //and volume is loaded...
                 if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
