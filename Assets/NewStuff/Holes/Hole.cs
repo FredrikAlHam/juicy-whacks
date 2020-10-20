@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 
 public class Hole : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Hole : MonoBehaviour
     public int beatIndex = 0;
     public float timeSinceLastBeat = 0;
     // Start is called before the first frame update
+
+    public Animator animator;
+    public AnimationClip anim;
 
 
     public virtual void Hit()
@@ -25,11 +29,11 @@ public class Hole : MonoBehaviour
     }
     public virtual void Popup()
     {
-
+        animator.SetTrigger("PopUp");
     }
     public virtual void UnPopup()
     {
-
+        animator.SetTrigger("UnPopUp");
     }
     protected virtual void Update()
     {
