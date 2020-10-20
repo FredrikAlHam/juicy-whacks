@@ -37,14 +37,14 @@ public class Hole : MonoBehaviour
     public virtual void Popup()
     {
         animator.SetTrigger("PopUp");
-      //  timeSinceLastBeat = 0f;
-       // sR.color = Color.green;
+        timeSinceLastBeat = 0f;
+        sR.color = Color.green;
     }
     public virtual void UnPopup()
     {
         animator.SetTrigger("UnPopUp");
-       // timeSinceLastBeat += Time.deltaTime;
-      //  sR.color = Color.white;
+        timeSinceLastBeat += Time.deltaTime;
+        sR.color = Color.white;
     }
     protected virtual void Update()
     {
