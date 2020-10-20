@@ -658,7 +658,6 @@ GameObject:
   m_Component:
   - component: {fileID: 519246670}
   - component: {fileID: 519246671}
-  - component: {fileID: 519246672}
   m_Layer: 5
   m_Name: Slider for Music
   m_TagString: Untagged
@@ -749,24 +748,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &519246672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519246669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ClickfxAudio: {fileID: 0}
-  SwitchfxAudio: {fileID: 1971673142}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
-  sliderAmbience: {fileID: 0}
-  sliderMusic: {fileID: 0}
 --- !u!1 &629720829
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +878,6 @@ GameObject:
   - component: {fileID: 751388598}
   - component: {fileID: 751388599}
   - component: {fileID: 751388600}
-  - component: {fileID: 751388601}
   m_Layer: 5
   m_Name: Slider for SFX
   m_TagString: Untagged
@@ -1006,24 +986,6 @@ MonoBehaviour:
   mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
   sliderAmbience: {fileID: 751388599}
   sliderMusic: {fileID: 519246671}
---- !u!114 &751388601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 751388597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ClickfxAudio: {fileID: 0}
-  SwitchfxAudio: {fileID: 1971673142}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
-  sliderAmbience: {fileID: 0}
-  sliderMusic: {fileID: 0}
 --- !u!1 &806521799
 GameObject:
   m_ObjectHideFlags: 0
