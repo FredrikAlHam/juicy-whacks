@@ -15,6 +15,13 @@ public class Hole : MonoBehaviour
     public AnimationClip anim;
 
 
+    SpriteRenderer sR = null;
+    // Use this for initialization
+    void Start()
+    {
+        sR = GetComponent<SpriteRenderer>();
+    }
+
     public virtual void Hit()
     {
 
@@ -30,10 +37,14 @@ public class Hole : MonoBehaviour
     public virtual void Popup()
     {
         animator.SetTrigger("PopUp");
+      //  timeSinceLastBeat = 0f;
+       // sR.color = Color.green;
     }
     public virtual void UnPopup()
     {
         animator.SetTrigger("UnPopUp");
+       // timeSinceLastBeat += Time.deltaTime;
+      //  sR.color = Color.white;
     }
     protected virtual void Update()
     {
