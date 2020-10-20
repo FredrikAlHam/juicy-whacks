@@ -66,6 +66,8 @@ public class MenuScripts : MonoBehaviour
                 if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
                 {
                     slower = true;
+
+                    //######################## 3 PauseMenue scenes open when this if statement goes through because for two frames there's neither pause or volume scenes up - which triggers the first if statement - and hence opens pause scenes!
                     //open pause additionaly.
                     SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive).completed += (x) => { loadingLevel = false; };
                     //close volume.

@@ -451,8 +451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1a3496abe03c848976a75afe6db466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchfxAudio: {fileID: 2132735331}
-  ClickfxAudio: {fileID: 1833407926}
 --- !u!4 &997272202
 Transform:
   m_ObjectHideFlags: 0
@@ -1052,6 +1050,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1953857354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1953857356}
+  - component: {fileID: 1953857355}
+  m_Layer: 0
+  m_Name: SoundScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1953857355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953857354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickfxAudio: {fileID: 0}
+  SwitchfxAudio: {fileID: 0}
+  mixerAmbience: {fileID: 0}
+  sliderAmbience: {fileID: 0}
+--- !u!4 &1953857356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953857354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.3159556, y: -1.0839609, z: -3.9325128}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2013555955
 GameObject:
