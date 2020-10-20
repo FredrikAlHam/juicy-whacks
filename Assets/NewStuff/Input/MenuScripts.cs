@@ -37,18 +37,8 @@ public class MenuScripts : MonoBehaviour
         //can also be written as (controls.UI.Pause.triggered)
         //if (controls.UI.Pause.triggered)
 
-        /*if (controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Canceled)
+        if (controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started )
         {
-            if(!SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
-            slower = false;
-
-            if(SceneManager.GetSceneByName("PauseMenu").isLoaded)
-            slower = true;
-        } */
-            if (controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started)
-        {
-            //slower is used to slow down the scene swithching
-            //slower = !slower;
 
             #region if game is loaded
             //and the scene "game" is loaded...
@@ -57,30 +47,31 @@ public class MenuScripts : MonoBehaviour
                 //and neither "pause" or "volume" is loaded...
                 if (!slower && !SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
                 {
-
+                    slower = true;
                     //open the pause scene additionally and waits for the action to be completed.
                     SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive).completed += (x) => { loadingLevel = false; };
                     loadingLevel = true;
-                    slower = true;
                     Invoke("SlowerFunction", 1.0f);
                 }
 
                 //and "pause" is loaded...
                 if (!slower && SceneManager.GetSceneByName("PauseMenu").isLoaded)
                 {
+                    slower = true;
                     //close pause.
                     SceneManager.UnloadSceneAsync("PauseMenu");   
-                    slower = true;
                     Invoke("SlowerFunction", 1.0f);
                 }
                 //and volume is loaded...
                 if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
                 {
+                    slower = true;
                     //open pause additionaly.
                     SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive).completed += (x) => { loadingLevel = false; };
                     //close volume.
                     SceneManager.UnloadSceneAsync("VolumeMenu");
                     loadingLevel = true;
+                    Invoke("SlowerFunction", 1.0f);
 
                 }
 
@@ -89,7 +80,7 @@ public class MenuScripts : MonoBehaviour
 
             #region else
             //and the scene "VolumeMenu" is loaded...
-            if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
+            if (SceneManager.GetSceneByName("VolumeMenu").isLoaded && !SceneManager.GetSceneByName("game").isLoaded)
             {
                 //load MainMenu.
                 SceneManager.LoadScene("MainMenu");
@@ -141,10 +132,11 @@ public class MenuScripts : MonoBehaviour
         //if the "game" scene is loaded
         if (SceneManager.GetSceneByName("game").isLoaded)
         {
-            //open pause additionaly.
-            SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
             //unload volume scene.
             SceneManager.UnloadSceneAsync("VolumeMenu");
+            //open pause additionaly.
+            SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+
         }
         else
         {
@@ -164,12 +156,13 @@ public class MenuScripts : MonoBehaviour
     public void VolumeAdd()
     {
         SceneManager.LoadSceneAsync("VolumeMenu", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("PauseMenu");
     }
     //This function loads the "PauseMenu" scene additionaly and unloads the "VolumeMenu"
     public void VolumeToPause()
     {
-        SceneManager.UnloadSceneAsync("VolumeMenu");
         SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("VolumeMenu");
     }
     //This function loads the "MainMenu" scene.
     public void MainMenu()
