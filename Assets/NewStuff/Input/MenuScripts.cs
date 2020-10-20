@@ -10,6 +10,8 @@ public class MenuScripts : MonoBehaviour
     //Declares that a pair of Controls named "controls" will be used, they are currently nothing.
     Controls controls = null;
 
+    //public bool lastTriggered = false;
+    //public UnityEngine.InputSystem.InputActionPhase lastPhase;
     //This bool is used so that holding space cant switch beteen the "pause" and "game" scene endlessly fast - it forces you to repress space.. hopefully
     //public static bool slower = false;
 
@@ -26,18 +28,31 @@ public class MenuScripts : MonoBehaviour
         //Enables the controls.
         controls = new Controls();
         controls.UI.Enable();
+
+
        
     }
 
     public void Update()
     {
+        if(controls.UI.Pause.triggered)
+        {
+            if (SceneManager.GetSceneByName("PauseMenu").isLoaded)
+               Debug.LogError("in PauseMenu phase        " + controls.UI.Pause.phase);
+            //else
+                //Debug.LogError("phase        " + controls.UI.Pause.phase);
 
-        //if the player presses space...
+        }
+        //Debug.LogError("triggered" + controls.UI.Pause.triggered);
+
+
 
         //can also be written as (controls.UI.Pause.triggered)
         //if (controls.UI.Pause.triggered)
 
-        if (controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started )
+        //if the player presses space...
+        if (controls.UI.Pause.triggered && controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started )
+
         {
 
             #region if game is loaded
@@ -45,22 +60,22 @@ public class MenuScripts : MonoBehaviour
             if (SceneManager.GetSceneByName("game").isLoaded)
             {
                 //and neither "pause" or "volume" is loaded...
-                if (!slower && !SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
+                if ( !SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded) //(!slower &&
                 {
-                    slower = true;
+                    //slower = true;
                     //open the pause scene additionally and waits for the action to be completed.
                     SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive).completed += (x) => { loadingLevel = false; };
                     loadingLevel = true;
-                    Invoke("SlowerFunction", 1.0f);
+                    //Invoke("SlowerFunction", 1.0f);
                 }
 
                 //and "pause" is loaded...
-                if (!slower && SceneManager.GetSceneByName("PauseMenu").isLoaded)
+                if (SceneManager.GetSceneByName("PauseMenu").isLoaded)//(!slower && 
                 {
-                    slower = true;
+                    //slower = true;
                     //close pause.
                     SceneManager.UnloadSceneAsync("PauseMenu");   
-                    Invoke("SlowerFunction", 1.0f);
+                    //Invoke("SlowerFunction", 1.0f);
                 }
                 //and volume is loaded...
                 if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
