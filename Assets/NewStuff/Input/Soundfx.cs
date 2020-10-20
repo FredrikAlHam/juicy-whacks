@@ -15,6 +15,9 @@ public class Soundfx : MonoBehaviour, ISelectHandler
     [SerializeField]
     private AudioSource SwitchfxAudio;
 
+
+    public AudioMixer mixerAmbience;
+
     //when the object this script is on is selected...
     public void OnSelect(BaseEventData eventData)
     {
@@ -26,6 +29,13 @@ public class Soundfx : MonoBehaviour, ISelectHandler
     {
         SwitchfxAudio.Play();
     }
+
+    public void SetLevel(float sliderValue)
+    {
+        mixerAmbience.SetFloat("AmbienceVol", Mathf.Log10(sliderValue) * 20);
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
