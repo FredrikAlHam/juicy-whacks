@@ -596,8 +596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchfxAudio: {fileID: 1703722956}
   ClickfxAudio: {fileID: 922768936}
+  SwitchfxAudio: {fileID: 1703722956}
 --- !u!1 &575615767
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,8 +752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchfxAudio: {fileID: 1703722956}
   ClickfxAudio: {fileID: 922768936}
+  SwitchfxAudio: {fileID: 1703722956}
 --- !u!1 &608274563
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +866,7 @@ GameObject:
   - component: {fileID: 922768937}
   - component: {fileID: 922768936}
   m_Layer: 0
-  m_Name: ClickfxAudio
+  m_Name: SwitchfxAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1137,8 +1137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchfxAudio: {fileID: 1703722956}
   ClickfxAudio: {fileID: 922768936}
+  SwitchfxAudio: {fileID: 1703722956}
 --- !u!1 &1078538983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1635,7 +1635,7 @@ GameObject:
   - component: {fileID: 1703722957}
   - component: {fileID: 1703722956}
   m_Layer: 0
-  m_Name: SwitchfxAudio
+  m_Name: ClickfxAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1838,8 +1838,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchfxAudio: {fileID: 1703722956}
   ClickfxAudio: {fileID: 922768936}
+  SwitchfxAudio: {fileID: 1703722956}
 --- !u!1 &2057504188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,8 +2099,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchfxAudio: {fileID: 0}
   ClickfxAudio: {fileID: 0}
+  SwitchfxAudio: {fileID: 0}
 --- !u!114 &2104745942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2113,5 +2113,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwitchfxAudio: {fileID: 1703722956}
   ClickfxAudio: {fileID: 922768936}
+  SwitchfxAudio: {fileID: 1703722956}

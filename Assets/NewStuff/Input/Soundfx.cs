@@ -11,20 +11,20 @@ public class Soundfx : MonoBehaviour, ISelectHandler
 
 
     [SerializeField]
-    private AudioSource SwitchfxAudio;
-    [SerializeField]
     private AudioSource ClickfxAudio;
+    [SerializeField]
+    private AudioSource SwitchfxAudio;
 
     //when the object this script is on is selected...
     public void OnSelect(BaseEventData eventData)
     {
         //play this audio
-        SwitchfxAudio.Play();
+        ClickfxAudio.Play();
     }
     //this function plays an audio. 
     public void OnClick()
     {
-        ClickfxAudio.Play();
+        SwitchfxAudio.Play();
     }
 
     // Start is called before the first frame update
