@@ -598,6 +598,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
+  mixerAmbience: {fileID: 0}
+  mixerMusic: {fileID: 0}
+  sliderAmbience: {fileID: 0}
+  sliderMusic: {fileID: 0}
 --- !u!1 &575615767
 GameObject:
   m_ObjectHideFlags: 0
@@ -754,6 +758,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
+  mixerAmbience: {fileID: 0}
+  mixerMusic: {fileID: 0}
+  sliderAmbience: {fileID: 0}
+  sliderMusic: {fileID: 0}
 --- !u!1 &608274563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,6 +1147,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
+  mixerAmbience: {fileID: 0}
+  mixerMusic: {fileID: 0}
+  sliderAmbience: {fileID: 0}
+  sliderMusic: {fileID: 0}
 --- !u!1 &1078538983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,6 +1793,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd1a3496abe03c848976a75afe6db466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
+  mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
 --- !u!4 &1861907346
 Transform:
   m_ObjectHideFlags: 0
@@ -1840,6 +1854,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
+  mixerAmbience: {fileID: 0}
+  mixerMusic: {fileID: 0}
+  sliderAmbience: {fileID: 0}
+  sliderMusic: {fileID: 0}
 --- !u!1 &2057504188
 GameObject:
   m_ObjectHideFlags: 0
@@ -2101,6 +2119,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 0}
   SwitchfxAudio: {fileID: 0}
+  mixerAmbience: {fileID: 0}
+  mixerMusic: {fileID: 0}
+  sliderAmbience: {fileID: 0}
+  sliderMusic: {fileID: 0}
 --- !u!114 &2104745942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,3 +2137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
+  mixerAmbience: {fileID: 0}
+  mixerMusic: {fileID: 0}
+  sliderAmbience: {fileID: 0}
+  sliderMusic: {fileID: 0}

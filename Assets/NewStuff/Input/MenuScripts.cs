@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 //Hej Tobbe, Jag (Harriet) har skrivit på engelska, jag hoppas det är okej :3 Also hela det här scriptet är mitt, yay.
 public class MenuScripts : MonoBehaviour
@@ -13,7 +14,9 @@ public class MenuScripts : MonoBehaviour
     //Used to prevent multiples of the same level.
     private bool loadingLevel;
 
-
+    //For Volume Options
+    public AudioMixer mixerAmbience;
+    public AudioMixer mixerMusic;
 
     #region not used
     //trying to prevent space from opening when game is opening stuffaaaaaaaaa
@@ -22,6 +25,9 @@ public class MenuScripts : MonoBehaviour
 
     public void Start() 
     {
+        mixerAmbience.SetFloat("AmbienceVol", Mathf.Log10(PlayerPrefs.GetFloat("AmbienceVolume", 0.75f)) * 20);
+        mixerMusic.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume", 0.75f)) * 20);
+
         //Enables the controls.
         controls = new Controls();
         controls.UI.Enable();
