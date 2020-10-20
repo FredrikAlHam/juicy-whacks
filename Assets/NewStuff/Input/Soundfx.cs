@@ -21,7 +21,7 @@ public class Soundfx : MonoBehaviour, ISelectHandler
         //play this audio
         SwitchfxAudio.Play();
     }
-    //this function plays an audio.
+    //this function plays an audio. 
     public void OnClick()
     {
         ClickfxAudio.Play();
