@@ -11,9 +11,14 @@ public class MenuScripts : MonoBehaviour
     Controls controls = null;
 
     //This bool is used so that holding space cant switch beteen the "pause" and "game" scene endlessly fast - it forces you to repress space.. hopefully
-    public static bool slower = false;
+    //public static bool slower = false;
+
+        //used to prevent multiples of the same level.
+    private bool loadingLevel;
 
 
+    //trying to prevent space from opening when game is opening stuffaaaaaaaaa
+    private bool slower;
 
 
     public void Start() 
@@ -26,12 +31,21 @@ public class MenuScripts : MonoBehaviour
 
     public void Update()
     {
+
         //if the player presses space...
 
         //can also be written as (controls.UI.Pause.triggered)
         //if (controls.UI.Pause.triggered)
 
-        if (controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started)
+        /*if (controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Canceled)
+        {
+            if(!SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
+            slower = false;
+
+            if(SceneManager.GetSceneByName("PauseMenu").isLoaded)
+            slower = true;
+        } */
+            if (controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started)
         {
             //slower is used to slow down the scene swithching
             //slower = !slower;
@@ -41,31 +55,35 @@ public class MenuScripts : MonoBehaviour
             if (SceneManager.GetSceneByName("game").isLoaded)
             {
                 //and neither "pause" or "volume" is loaded...
-                if (!SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
+                if (!slower && !SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded)
                 {
-                    //open the pause scene additionally.
-                    SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
-                    //changes slwoer
-                   // slower = !slower;
+
+                    //open the pause scene additionally and waits for the action to be completed.
+                    SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive).completed += (x) => { loadingLevel = false; };
+                    loadingLevel = true;
+                    slower = true;
+                    Invoke("SlowerFunction", 1.0f);
                 }
 
                 //and "pause" is loaded...
-                if (SceneManager.GetSceneByName("PauseMenu").isLoaded && slower)
+                if (!slower && SceneManager.GetSceneByName("PauseMenu").isLoaded)
                 {
                     //close pause.
-                    SceneManager.UnloadSceneAsync("PauseMenu");
-                    //changes slower
-                   // slower = !slower;
+                    SceneManager.UnloadSceneAsync("PauseMenu");   
+                    slower = true;
+                    Invoke("SlowerFunction", 1.0f);
                 }
                 //and volume is loaded...
                 if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
                 {
                     //open pause additionaly.
-                    SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive);
+                    SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive).completed += (x) => { loadingLevel = false; };
                     //close volume.
                     SceneManager.UnloadSceneAsync("VolumeMenu");
+                    loadingLevel = true;
 
                 }
+
             }
             #endregion
 
@@ -85,6 +103,13 @@ public class MenuScripts : MonoBehaviour
             }
             #endregion
         }
+    }
+
+
+    //This function makes the variable slower false - it is used to prevent the scenes from switching to and fro uncontrollably fast when pressing space;
+    public void SlowerFunction()
+    {
+        slower = false;
     }
 
     #region functions for the MainMenu
