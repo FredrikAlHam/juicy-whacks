@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AudioUtilities
 {
-    public class SongPlayer
+    public class SongPlayer : IDisposable
     {
         public Beat Beat { get; private set; } = new Beat() { holeIndecies = new int[] { 0, 0, 0, 0, 0, 0 } };
         public bool IsPlaying { get; private set; } = false;
@@ -44,6 +44,13 @@ namespace AudioUtilities
                 Debug.Log("on beat " + BeatIndex);
             }
         }
+
+        public void Dispose()
+        {
+            beatTimer.Stop();
+            beatTimer.Dispose();
+        }
+
         public SongPlayer(Song song)
         {
             this.song = song;
