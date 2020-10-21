@@ -1,4 +1,5 @@
 ﻿using AudioUtilities;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,7 @@ public class SongEditor : MonoBehaviour
     public Color OddColor = Color.gray;
 
     [SerializeField] private Song song = null;
+    private List<GameObject> trackObjs = new List<GameObject>();
     private void Start()
     {
         if (SongImporter.Ready)
@@ -36,6 +38,7 @@ public class SongEditor : MonoBehaviour
         {
             GameObject trackO = Instantiate(TrackTemplate, ViewPort.transform);
             trackO.SetActive(true);
+            trackObjs.Add(trackO);
             GameObject label = Instantiate(LabelTemplate, trackO.transform);
             label.transform.GetComponentInChildren<Text>().text = $"Track\n{tI + 1}";
             label.SetActive(true);
@@ -57,9 +60,23 @@ public class SongEditor : MonoBehaviour
                 {
                     btn.SetDefaultColor(OddColor);
                 }
-                btn.SetValue(song.beats[bI].holeIndecies[tI]);
+                btn.SetValue(song.beats[bI].holeIndecies[tI]);  
             }
         }
+    }
+    public void SongSave()
+    {
+        for (int bI = 0; bI < ViewPort.transform.GetChild(3).GetComponentsInChildren<SongEditorBtn>().Length; bI++)
+        {
+            List<int> indecies = new List<int>();
+            for (int tI = 0; tI < trackObjs.Count; tI++)
+            {
+                indecies.Add(trackObjs[tI].transform.GetComponentsInChildren<SongEditorBtn>()[bI].GetValue());
+            }
+            song.beats[bI] = new Beat() { holeIndecies = indecies.ToArray() };
+        }
+
+
     }
 
     private void OnDisable()
