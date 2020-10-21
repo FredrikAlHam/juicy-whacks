@@ -23,7 +23,7 @@ namespace AudioUtilities
             beatTimer.Interval = 60000 / Convert.ToDouble(song.bpm)/*ms per beat*/ / 4 /* to sixteenths*/;
             IsPlaying = true;
             Timer delay = new Timer(song.milliesStartDelay);
-            delay.Elapsed += (sender, ctx) => { beatTimer.Start(); delay.Dispose();  };
+            delay.Elapsed += (sender, ctx) => { beatTimer.Start(); delay.Stop(); delay.Dispose(); };
             beatTimer.Elapsed += BeatTimer_Elapsed;
         }
         public void Pause()
