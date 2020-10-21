@@ -2186,7 +2186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6800cd100d77b554d87133cce182eb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playFirstSongOnStart: 1
+  playFirstSongOnStart: 0
 --- !u!1 &1289348540
 GameObject:
   m_ObjectHideFlags: 0

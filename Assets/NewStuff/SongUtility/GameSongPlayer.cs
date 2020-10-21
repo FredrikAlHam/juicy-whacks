@@ -25,6 +25,7 @@ namespace AudioUtilities
         private void Update()
         {
             if (SongImporter.Ready && player == null && playFirstSongOnStart) Play(song: SongImporter.Songs[0]); // REMOVE!!! THIS IS FOR TESTING ONLY
+            if (SongImporter.Ready && player == null && SongSelection.selection != null) Play(song: SongSelection.selection);
             if(!(player == null) && player.BeatIndex != 0)
             {
                 foreach (GameObject hole in Holes.holes)

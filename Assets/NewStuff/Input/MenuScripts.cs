@@ -125,7 +125,7 @@ public class MenuScripts : MonoBehaviour
     //This function loads the "game" scene.
     public void Play()
     {
-        SceneManager.LoadSceneAsync("game");
+        SceneManager.LoadSceneAsync("SongSelection");
     }
     //This function loads the "VolumeMenu" scene.
     public void Volume()
