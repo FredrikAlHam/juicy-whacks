@@ -31,6 +31,9 @@ public class MenuScripts : MonoBehaviour
         //Enables the controls.
         controls = new Controls();
         controls.UI.Enable();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
        
     }
 
