@@ -71,7 +71,7 @@ public class Hole : MonoBehaviour
             {
                 UnPopup();
             }
-            else if (queue[beatIndex + 3] > 0)
+            else if (queue[beatIndex + 4] > 0)
             {
                 PrepareToPopup();
             }
