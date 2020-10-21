@@ -35,7 +35,7 @@ public class SongEditor : MonoBehaviour
 
 #if UNITY_EDITOR
         /*For testing only*/
-        if(LoadFirstSongFound)song = SongImporter.Songs[0];
+        if (LoadFirstSongFound) song = SongImporter.Songs[0];
 #endif
         for (int tI = 0; tI < song.beats[0].holeIndecies.Length /*Tracks*/; tI++)
         {
@@ -55,7 +55,7 @@ public class SongEditor : MonoBehaviour
 
                 if (bI % 4 == 0)
                 {
-                    btnO.transform.GetComponentInChildren<Text>().text = beats.ToString();
+                    btnO.transform.GetComponentInChildren<Text>().text = (beats + 1).ToString();
                     beats++;
                     btn.SetDefaultColor(BeatColor);
                 }
@@ -63,7 +63,7 @@ public class SongEditor : MonoBehaviour
                 {
                     btn.SetDefaultColor(OddColor);
                 }
-                btn.SetValue(song.beats[bI].holeIndecies[tI]);  
+                btn.SetValue(song.beats[bI].holeIndecies[tI]);
             }
         }
     }
