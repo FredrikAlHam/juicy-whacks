@@ -1537,8 +1537,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 1671140383}
   SwitchfxAudio: {fileID: 1971673142}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
+  mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
+  mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
   controlSliders: 0
   sliderAmbience: {fileID: 0}
   sliderMusic: {fileID: 0}
