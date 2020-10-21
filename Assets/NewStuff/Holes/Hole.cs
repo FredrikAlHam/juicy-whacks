@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
 
@@ -55,18 +56,25 @@ public class Hole : MonoBehaviour
     }
     protected virtual void Update()
     {
-        if (queue.Count == 0 || queue.Count < beatIndex) return;
-        else if (queue[beatIndex] > 0)
+        try
         {
-            Popup();
+            if (queue.Count == 0 || queue.Count < beatIndex) return;
+            else if (queue[beatIndex] > 0)
+            {
+                Popup();
+            }
+            else if (queue[beatIndex - 3] > 0)
+            {
+                UnPopup();
+            }
+            else if (queue[beatIndex + 2] > 0)
+            {
+                PrepareToPopup();
+            }
         }
-        else if (queue[beatIndex - 3] > 0)
+        catch (ArgumentOutOfRangeException)
         {
-            UnPopup();
-        }
-        else if (queue[beatIndex + 2] > 0)
-        {
-            PrepareToPopup();
+
         }
     }
 }
