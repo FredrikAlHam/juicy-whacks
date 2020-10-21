@@ -18,6 +18,8 @@ public class Hole : MonoBehaviour
     public Animator animatorAxe;
     public AnimationClip axeAnim;
 
+    public Animator animatorOSU;
+
 
     SpriteRenderer sR = null;
     // Use this for initialization
@@ -40,10 +42,11 @@ public class Hole : MonoBehaviour
 
     public virtual void PrepareToPopup()
     {
-        animator.SetTrigger("PopUp");
+        animatorOSU.SetTrigger("OSU");
     }
     public virtual void Popup()
     {
+        animatorOSU.SetTrigger("No");
         animator.SetTrigger("PopUp");
         timeSinceLastBeat = 0f;
         sR.color = Color.green;
@@ -67,7 +70,7 @@ public class Hole : MonoBehaviour
             {
                 UnPopup();
             }
-            else if (queue[beatIndex + 2] > 0)
+            else if (queue[beatIndex + 4] > 0)
             {
                 PrepareToPopup();
             }
