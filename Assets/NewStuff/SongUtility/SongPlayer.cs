@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Timers;
-using UnityEngine;
 
 namespace AudioUtilities
 {
@@ -23,8 +22,9 @@ namespace AudioUtilities
             BeatIndex = 0;
             beatTimer.Interval = 60000 / Convert.ToDouble(song.bpm)/*ms per beat*/ / 4 /* to sixteenths*/;
             IsPlaying = true;
+            Timer delay = new Timer(song.milliesStartDelay);
+            delay.Elapsed += (sender, ctx) => { delay.Dispose(); beatTimer.Start(); };
             beatTimer.Elapsed += BeatTimer_Elapsed;
-            beatTimer.Start();
         }
         public void Pause()
         {
