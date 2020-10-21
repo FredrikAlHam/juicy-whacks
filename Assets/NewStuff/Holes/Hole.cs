@@ -14,6 +14,9 @@ public class Hole : MonoBehaviour
     public Animator animator;
     public AnimationClip anim;
 
+    public Animator animatorAxe;
+    public AnimationClip axeAnim;
+
 
     SpriteRenderer sR = null;
     // Use this for initialization
@@ -24,15 +27,19 @@ public class Hole : MonoBehaviour
 
     public virtual void Hit()
     {
-
+        animatorAxe.SetTrigger("Swing");
+        IsHit = true;
     }
+
     public virtual void UnHit()
     {
-
+        animatorAxe.SetTrigger("UnSwing");
+        IsHit = false;
     }
+
     public virtual void PrepareToPopup()
     {
-
+        animator.SetTrigger("PopUp");
     }
     public virtual void Popup()
     {
@@ -53,11 +60,11 @@ public class Hole : MonoBehaviour
         {
             Popup();
         }
-        else if (queue[beatIndex - 1] > 0)
+        else if (queue[beatIndex - 3] > 0)
         {
             UnPopup();
         }
-        else if (queue[beatIndex + 1] > 0)
+        else if (queue[beatIndex + 2] > 0)
         {
             PrepareToPopup();
         }
