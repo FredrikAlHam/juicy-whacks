@@ -12,6 +12,9 @@ public class SongEditor : MonoBehaviour
     public Color BeatColor = Color.blue;
     public Color OddColor = Color.gray;
 
+#if UNITY_EDITOR
+    [SerializeField] bool LoadFirstSongFound = false;
+#endif
     [SerializeField] private Song song = null;
     private List<GameObject> trackObjs = new List<GameObject>();
     private void Start()
@@ -32,7 +35,7 @@ public class SongEditor : MonoBehaviour
 
 #if UNITY_EDITOR
         /*For testing only*/
-        song = SongImporter.Songs[0];
+        if(LoadFirstSongFound)song = SongImporter.Songs[0];
 #endif
         for (int tI = 0; tI < song.beats[0].holeIndecies.Length /*Tracks*/; tI++)
         {

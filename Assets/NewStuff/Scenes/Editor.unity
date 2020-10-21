@@ -1392,7 +1392,8 @@ MonoBehaviour:
   BeatBtn: {fileID: 1220502341}
   BeatColor: {r: 0.6462264, g: 0.98473907, b: 1, a: 1}
   OddColor: {r: 0.8018868, g: 0.8018868, b: 0.8018868, a: 1}
-  song: {fileID: 0}
+  LoadFirstSongFound: 0
+  song: {fileID: 11400000, guid: 59adff9d4095c0a428ac1bd521817a68, type: 2}
 --- !u!4 &1682854648
 Transform:
   m_ObjectHideFlags: 0

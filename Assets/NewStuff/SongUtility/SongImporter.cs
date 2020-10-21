@@ -8,7 +8,7 @@ public class SongImporter : MonoBehaviour
 {
     public static List<Song> Songs { get; private set; } = new List<Song>();
     public static List<AudioClip> MenuAudioClips { get; private set; } = new List<AudioClip>();
-    public static event Action Complete;
+    public static event Action Complete = new Action(ImportsComplete);
 
     public static bool Ready { get; private set; } = false;
     // Start is called before the first frame update
@@ -57,4 +57,6 @@ public class SongImporter : MonoBehaviour
         //}
 
     }
+
+    static void ImportsComplete() => Debug.Log("Imports Complete");
 }
