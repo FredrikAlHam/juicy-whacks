@@ -17,12 +17,20 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 29f342978af9d214bb7329cd3f269628
   m_SerializeEntries:
+  - m_GUID: 1a91c4908c56dcc428d28373e83cdb0c
+    m_Address: Assets/Songs/Testing/Doh.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Song
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   - m_GUID: 59adff9d4095c0a428ac1bd521817a68
     m_Address: Assets/Songs/Testing/Cirkus.asset
     m_ReadOnly: 0
-    m_SerializedLabels: []
-    m_MainAsset: {fileID: 11400000, guid: 59adff9d4095c0a428ac1bd521817a68, type: 2}
-    m_TargetAsset: {fileID: 11400000, guid: 59adff9d4095c0a428ac1bd521817a68, type: 2}
+    m_SerializedLabels:
+    - Song
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 380f568266f45614086d59254d8e696a, type: 2}
   m_SchemaSet:
