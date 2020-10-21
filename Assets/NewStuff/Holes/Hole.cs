@@ -12,13 +12,13 @@ public class Hole : MonoBehaviour
     public float timeSinceLastBeat = 0;
     // Start is called before the first frame update
 
-    public Animator animator;
+    public Animator animator;  //animator that controls (beavers) when to animate
     public AnimationClip anim;
 
-    public Animator animatorAxe;
+    public Animator animatorAxe;  //animator that controls (Axe) when to animate
     public AnimationClip axeAnim;
 
-    public Animator animatorOSU;
+    public Animator animatorOSU;  //animator that controls (circle/feedback thingy) when to animate
 
 
     SpriteRenderer sR = null;
@@ -30,8 +30,8 @@ public class Hole : MonoBehaviour
 
     public virtual void Hit()
     {
-        animatorAxe.SetTrigger("Swing");
-        IsHit = true;
+        animatorAxe.SetTrigger("Swing");  //when you hit (i.e. Press (L, K, J, F, D or S)) it will play this animation
+        IsHit = true;  //Activate true/false statement so that the game knows that one of these keys are pressed
     }
 
     public virtual void UnHit()
