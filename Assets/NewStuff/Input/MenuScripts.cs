@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.UI;
 
 //Hej Tobbe, Jag (Harriet) har skrivit på engelska, jag hoppas det är okej :3 Also hela det här scriptet är mitt, yay.
 public class MenuScripts : MonoBehaviour
@@ -31,6 +32,7 @@ public class MenuScripts : MonoBehaviour
         //Enables the controls.
         controls = new Controls();
         controls.UI.Enable();
+        
 
        
     }
@@ -171,8 +173,8 @@ public class MenuScripts : MonoBehaviour
     //This function loads the "VolumeMenu" scene additionaly.
     public void VolumeAdd()
     {
-        SceneManager.LoadSceneAsync("VolumeMenu", LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync("PauseMenu");
+        SceneManager.LoadSceneAsync("VolumeMenu", LoadSceneMode.Additive);
     }
     //This function loads the "PauseMenu" scene additionaly and unloads the "VolumeMenu"
     public void VolumeToPause()

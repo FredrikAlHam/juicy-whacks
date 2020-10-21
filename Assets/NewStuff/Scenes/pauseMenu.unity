@@ -194,7 +194,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 997272201}
+      - m_Target: {fileID: 1953857355}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -1002,10 +1002,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickfxAudio: {fileID: 0}
-  SwitchfxAudio: {fileID: 0}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
+  ClickfxAudio: {fileID: 1833407926}
+  SwitchfxAudio: {fileID: 2132735331}
+  mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
+  mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
+  controlSliders: 0
   sliderAmbience: {fileID: 0}
   sliderMusic: {fileID: 0}
 --- !u!4 &1953857356
