@@ -24,6 +24,7 @@ namespace AudioUtilities
             IsPlaying = true;
             Timer delay = new Timer(song.milliesStartDelay);
             delay.Elapsed += (sender, ctx) => { beatTimer.Start(); delay.Stop(); delay.Dispose(); };
+            delay.Start();
             beatTimer.Elapsed += BeatTimer_Elapsed;
         }
         public void Pause()
