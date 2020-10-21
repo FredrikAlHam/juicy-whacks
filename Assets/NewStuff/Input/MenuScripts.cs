@@ -94,14 +94,14 @@ public class MenuScripts : MonoBehaviour
             if (SceneManager.GetSceneByName("VolumeMenu").isLoaded && !SceneManager.GetSceneByName("game").isLoaded)
             {
                 //load MainMenu.
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadSceneAsync("MainMenu");
             }
 
             //and the scene "EndCredits" is loaded...
             if (SceneManager.GetSceneByName("EndCredits").isLoaded)
             {
                 //load MainMenu.
-                SceneManager.LoadScene("MainMenu");
+                SceneManager.LoadSceneAsync("MainMenu");
             }
             #endregion
         }
@@ -109,10 +109,10 @@ public class MenuScripts : MonoBehaviour
 
     #region not used
     //This function makes the variable slower false - it is used to prevent the scenes from switching to and fro uncontrollably fast when pressing space;
-    public void SlowerFunction() 
+   /* public void SlowerFunction() 
     {
         slower = false;
-    }
+    }*/
     #endregion 
 
     #region functions for the MainMenu
