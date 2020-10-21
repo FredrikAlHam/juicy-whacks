@@ -32,7 +32,7 @@ public class Hole : MonoBehaviour
     }
     public virtual void PrepareToPopup()
     {
-
+        animator.SetTrigger("PopUp");
     }
     public virtual void Popup()
     {
@@ -53,11 +53,11 @@ public class Hole : MonoBehaviour
         {
             Popup();
         }
-        else if (queue[beatIndex - 1] > 0)
+        else if (queue[beatIndex - 2] > 0)
         {
             UnPopup();
         }
-        else if (queue[beatIndex + 1] > 0)
+        else if (queue[beatIndex + 2] > 0)
         {
             PrepareToPopup();
         }
