@@ -14,38 +14,40 @@ public class SongImporter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bool x = false;
-        //new Song() { beats = new Beat[] { new Beat() } , bpm = 100, songName = "rappasen", timeSig1 = 4, timeSig2 = 4 }.Log();
+        if (!Ready)
+        {
+            bool x = false;
 
-        //Gets song assets
-        Addressables.LoadAssetsAsync<Song>("Song", null).Completed += objs =>
-         {
-             foreach (Song song in objs.Result)
-             {
-                 Debug.Log($"Found song {song.songName}");
-                 Songs.Add(song);
-             }
-             if (x)
-             {
-                 Ready = true;
-                 Complete.Invoke();
-             }
-             else x = true;
-         };
-        //Gets AudioClips for menu music
-        Addressables.LoadAssetsAsync<AudioClip>("MenuAudio", null).Completed += objs =>
-         {
-             foreach (AudioClip aC in objs.Result)
-             {
-                 MenuAudioClips.Add(aC);
-             }
-             if (x)
-             {
-                 Ready = true;
-                 Complete.Invoke();
-             }
-             else x = true;
-         };
+            //Gets song assets
+            Addressables.LoadAssetsAsync<Song>("Song", null).Completed += objs =>
+            {
+                foreach (Song song in objs.Result)
+                {
+                    Debug.Log($"Found song {song.songName}");
+                    Songs.Add(song);
+                }
+                if (x)
+                {
+                    Ready = true;
+                    Complete.Invoke();
+                }
+                else x = true;
+            };
+            //Gets AudioClips for menu music
+            Addressables.LoadAssetsAsync<AudioClip>("MenuAudio", null).Completed += objs =>
+            {
+                foreach (AudioClip aC in objs.Result)
+                {
+                    MenuAudioClips.Add(aC);
+                }
+                if (x)
+                {
+                    Ready = true;
+                    Complete.Invoke();
+                }
+                else x = true;
+            };
+        }
 
 
         //foreach (FileInfo fI in new DirectoryInfo(Path.Combine(Application.dataPath, "Resources", "songdata")).GetFiles("*.songdata"))
