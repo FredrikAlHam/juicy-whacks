@@ -46,8 +46,9 @@ public class Hole : MonoBehaviour
     }
     public virtual void Popup()
     {
-        animatorOSU.SetTrigger("No");
+
         animator.SetTrigger("PopUp");
+        animatorOSU.SetTrigger("No");
         timeSinceLastBeat = 0f;
         sR.color = Color.green;
     }
