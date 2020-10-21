@@ -1,4 +1,5 @@
 ﻿using AudioUtilities;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -7,6 +8,7 @@ public class SongImporter : MonoBehaviour
 {
     public static List<Song> Songs { get; private set; } = new List<Song>();
     public static List<AudioClip> MenuAudioClips { get; private set; } = new List<AudioClip>();
+    public static event Action Complete;
 
     public static bool Ready { get; private set; } = false;
     // Start is called before the first frame update
@@ -26,6 +28,7 @@ public class SongImporter : MonoBehaviour
              if (x)
              {
                  Ready = true;
+                 Complete.Invoke();
              }
              else x = true;
          };
@@ -39,6 +42,7 @@ public class SongImporter : MonoBehaviour
              if (x)
              {
                  Ready = true;
+                 Complete.Invoke();
              }
              else x = true;
          };
