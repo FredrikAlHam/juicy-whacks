@@ -22,6 +22,8 @@ public class Soundfx : MonoBehaviour, ISelectHandler
     public AudioMixer mixerAmbience;
     public AudioMixer mixerMusic;
 
+
+    public bool controlSliders = false;
     [SerializeField]
     public Slider sliderAmbience;
     [SerializeField]
@@ -30,11 +32,13 @@ public class Soundfx : MonoBehaviour, ISelectHandler
     // Start is called before the first frame update
     void Start()
     {
-
-        //retrieves the playerpref "AmbienceVolume" and sets the value of the slider to that.
-        sliderAmbience.value = PlayerPrefs.GetFloat("AmbienceVolume", 0.75f);
-        //retrieves the playerpref "MusicVolume" and sets the value of the slider to that.
-        sliderMusic.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        if (controlSliders)
+        {
+            //retrieves the playerpref "AmbienceVolume" and sets the value of the slider to that.
+            sliderAmbience.value = PlayerPrefs.GetFloat("AmbienceVolume", 0.75f);
+            //retrieves the playerpref "MusicVolume" and sets the value of the slider to that.
+            sliderMusic.value = PlayerPrefs.GetFloat("MusicVolume", 0.75f);
+        }
         SetLevel(PlayerPrefs.GetFloat("MusicVolume", 0.75f));
         SetLevelTwo(PlayerPrefs.GetFloat("AmbienceVolume", 0.75f));
     }

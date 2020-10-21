@@ -910,6 +910,7 @@ MonoBehaviour:
   SwitchfxAudio: {fileID: 0}
   mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
   mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
+  controlSliders: 0
   sliderAmbience: {fileID: 751388599}
   sliderMusic: {fileID: 519246671}
 --- !u!1 &806521799
@@ -1215,8 +1216,9 @@ MonoBehaviour:
   SwitchfxAudio: {fileID: 1971673142}
   mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
   mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
-  sliderAmbience: {fileID: 0}
-  sliderMusic: {fileID: 0}
+  controlSliders: 1
+  sliderAmbience: {fileID: 751388599}
+  sliderMusic: {fileID: 519246671}
 --- !u!4 &1023921451
 Transform:
   m_ObjectHideFlags: 0
@@ -1537,6 +1539,7 @@ MonoBehaviour:
   SwitchfxAudio: {fileID: 1971673142}
   mixerAmbience: {fileID: 0}
   mixerMusic: {fileID: 0}
+  controlSliders: 0
   sliderAmbience: {fileID: 0}
   sliderMusic: {fileID: 0}
 --- !u!1 &1638280923

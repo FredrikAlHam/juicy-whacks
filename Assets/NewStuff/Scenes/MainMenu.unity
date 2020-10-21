@@ -361,8 +361,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
+  mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
+  mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
+  controlSliders: 0
   sliderAmbience: {fileID: 0}
   sliderMusic: {fileID: 0}
 --- !u!1 &575615767
@@ -520,8 +521,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
+  mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
+  mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
+  controlSliders: 0
   sliderAmbience: {fileID: 0}
   sliderMusic: {fileID: 0}
 --- !u!1 &608274563
@@ -982,8 +984,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
+  mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
+  mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
+  controlSliders: 0
   sliderAmbience: {fileID: 0}
   sliderMusic: {fileID: 0}
 --- !u!1 &1078538983
@@ -1607,8 +1610,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
+  mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
+  mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
+  controlSliders: 0
   sliderAmbience: {fileID: 0}
   sliderMusic: {fileID: 0}
 --- !u!1 &2057504188
@@ -1729,7 +1733,6 @@ GameObject:
   - component: {fileID: 2104745939}
   - component: {fileID: 2104745938}
   - component: {fileID: 2104745942}
-  - component: {fileID: 2104745941}
   m_Layer: 5
   m_Name: Credits
   m_TagString: Untagged
@@ -1858,24 +1861,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104745936}
   m_CullTransparentMesh: 0
---- !u!114 &2104745941
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2104745936}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8c4474997adfe140b56c3f6ad7c83b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ClickfxAudio: {fileID: 0}
-  SwitchfxAudio: {fileID: 0}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
-  sliderAmbience: {fileID: 0}
-  sliderMusic: {fileID: 0}
 --- !u!114 &2104745942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1890,7 +1875,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClickfxAudio: {fileID: 922768936}
   SwitchfxAudio: {fileID: 1703722956}
-  mixerAmbience: {fileID: 0}
-  mixerMusic: {fileID: 0}
+  mixerAmbience: {fileID: 24100000, guid: 406f499f2ba0865448bab46ef00d08f4, type: 2}
+  mixerMusic: {fileID: 24100000, guid: dc45127927fd17846aef240054a64dcc, type: 2}
+  controlSliders: 0
   sliderAmbience: {fileID: 0}
   sliderMusic: {fileID: 0}
