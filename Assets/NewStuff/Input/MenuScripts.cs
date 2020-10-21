@@ -32,9 +32,13 @@ public class MenuScripts : MonoBehaviour
         controls = new Controls();
         controls.UI.Enable();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
        
+    }
+
+    private void Awake()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false; //Fungerar inte om musen är utanför gameviewn i editorn bär spelet startas 
     }
 
     public void Update()
