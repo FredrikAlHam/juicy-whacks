@@ -27,4 +27,5 @@ MonoBehaviour:
   timeSig1: 4
   timeSig2: 4
   bpm: 100
+  milliesStartDelay: 0.00000001
   clip: {fileID: 8300000, guid: 049dd0ff2ebda6247a1cb10a99847bf8, type: 3}

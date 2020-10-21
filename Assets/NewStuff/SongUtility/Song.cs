@@ -18,7 +18,7 @@ namespace AudioUtilities
         public int timeSig1;
         public int timeSig2;
         public int bpm;
-        public float milliesStartDelay = 0;
+        public float milliesStartDelay = 0.00000001f;
         public AudioClip clip;
 
         public void Log()
