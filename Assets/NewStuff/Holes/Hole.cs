@@ -12,6 +12,9 @@ public class Hole : MonoBehaviour
     public float timeSinceLastBeat = 0;
     // Start is called before the first frame update
 
+    private bool isPopUp = false;
+    public int points = 0;
+
     public Animator animator;  //animator that controls (beavers) when to animate
     public AnimationClip anim;
 
@@ -51,7 +54,11 @@ public class Hole : MonoBehaviour
         animatorOSU.SetTrigger("No");
         timeSinceLastBeat = 0f;
         sR.color = Color.green;
+        isPopUp = true;
     }
+
+
+
     public virtual void UnPopup()
     {
         animator.SetTrigger("UnPopUp");
@@ -60,6 +67,14 @@ public class Hole : MonoBehaviour
     }
     protected virtual void Update()
     {
+
+        if (IsHit == true && isPopUp == true && queue[beatIndex + 1] > 0)
+        {
+            //gib points
+            points++;
+            Debug.Log("scoree" + points);
+        }
+
         try
         {
             if (queue.Count == 0 || queue.Count < beatIndex) return;
@@ -71,7 +86,7 @@ public class Hole : MonoBehaviour
             {
                 UnPopup();
             }
-            else if (queue[beatIndex + 4] > 0)
+            else if (queue[beatIndex + 5] > 0)
             {
                 PrepareToPopup();
             }
