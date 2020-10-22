@@ -571,7 +571,7 @@ Transform:
   m_GameObject: {fileID: 167166324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 1542204268}
   m_RootOrder: 0
@@ -793,6 +793,9 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
+  isPopUp: 0
+  hasBeenhit: 0
+  isPreparing: 0
   animator: {fileID: 33433501}
   anim: {fileID: 7400000, guid: 0db5a9391f58ee948ad01dafc5b9381d, type: 2}
   animatorAxe: {fileID: 1734894562}
@@ -1097,6 +1100,9 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
+  isPopUp: 0
+  hasBeenhit: 0
+  isPreparing: 0
   animator: {fileID: 402695648}
   anim: {fileID: 7400000, guid: 1d77ca5e75c84b742bc586ca071a48ea, type: 2}
   animatorAxe: {fileID: 105648475}
@@ -1616,6 +1622,50 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &912067358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912067360}
+  - component: {fileID: 912067359}
+  m_Layer: 0
+  m_Name: Score
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &912067359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912067358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f950f53b68e060144bd8436d2fe2784c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+--- !u!4 &912067360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912067358}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 453.55655, y: 35.71639, z: -223.73813}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &952112656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,6 +1713,9 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
+  isPopUp: 0
+  hasBeenhit: 0
+  isPreparing: 0
   animator: {fileID: 2076555103}
   anim: {fileID: 7400000, guid: 6eeb7cbbb0108b54cb9a8e6c35b5cb28, type: 2}
   animatorAxe: {fileID: 1274441017}
@@ -2436,6 +2489,9 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
+  isPopUp: 0
+  hasBeenhit: 0
+  isPreparing: 0
   animator: {fileID: 569043694}
   anim: {fileID: 7400000, guid: 1ad6d76ca3887014faf58a25d024f0b2, type: 2}
   animatorAxe: {fileID: 655275721}
@@ -2574,6 +2630,9 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
+  isPopUp: 0
+  hasBeenhit: 0
+  isPreparing: 0
   animator: {fileID: 271372822}
   anim: {fileID: 7400000, guid: 17e1fe4723e44d6419fbb0fc404490f0, type: 2}
   animatorAxe: {fileID: 743250211}
@@ -2676,6 +2735,9 @@ MonoBehaviour:
   queue: 
   beatIndex: 0
   timeSinceLastBeat: 0
+  isPopUp: 0
+  hasBeenhit: 0
+  isPreparing: 0
   animator: {fileID: 769413519}
   anim: {fileID: 7400000, guid: 77b30a886bfa8d840b5964441fb278b4, type: 2}
   animatorAxe: {fileID: 1899971410}
