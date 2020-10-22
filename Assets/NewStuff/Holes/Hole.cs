@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class Hole : MonoBehaviour
 {
@@ -12,8 +11,9 @@ public class Hole : MonoBehaviour
     public float timeSinceLastBeat = 0;
     // Start is called before the first frame update
 
-    private bool isPopUp = false;
-    public int points = 0;
+    [SerializeField] private bool isPopUp = false;
+    [SerializeField] private bool hasBeenhit = false;
+    [SerializeField] private bool isPreparing = false;
 
     public Animator animator;  //animator that controls (beavers) when to animate
     public AnimationClip anim;
@@ -34,6 +34,15 @@ public class Hole : MonoBehaviour
     public virtual void Hit()
     {
         animatorAxe.SetTrigger("Swing");  //when you hit (i.e. Press (L, K, J, F, D or S)) it will play this animation
+        if (isPopUp && !hasBeenhit)
+        {
+            hasBeenhit = true;
+            Score.instance.score++;
+        }
+        else
+        {
+            Score.instance.score--;
+        }
         IsHit = true;  //Activate true/false statement so that the game knows that one of these keys are pressed
     }
 
@@ -46,47 +55,43 @@ public class Hole : MonoBehaviour
     public virtual void PrepareToPopup()
     {
         animatorOSU.SetTrigger("OSU");
+        isPreparing = true;
     }
     public virtual void Popup()
     {
-
+        isPreparing = false;
         animator.SetTrigger("PopUp");
         animatorOSU.SetTrigger("No");
         timeSinceLastBeat = 0f;
         sR.color = Color.green;
         isPopUp = true;
+        hasBeenhit = false;
     }
 
 
 
     public virtual void UnPopup()
     {
+        if(!hasBeenhit) Score.instance.score--;
         animator.SetTrigger("UnPopUp");
         timeSinceLastBeat += Time.deltaTime;
         sR.color = Color.white;
+        isPopUp = false;
     }
     protected virtual void Update()
     {
-
-        if (IsHit == true && isPopUp == true && queue[beatIndex + 1] > 0)
-        {
-            //gib points
-            points++;
-            Debug.Log("scoree" + points);
-        }
-
+        //There must be a better way to do this
         try
         {
-            if (queue.Count == 0 || queue.Count < beatIndex) return;
-            else if (queue[beatIndex] > 0)
+            if (queue[beatIndex] > 0 && !isPopUp)
             {
                 Popup();
             }
-            else if (queue[beatIndex - 3] > 0)
+            if (queue[beatIndex - 3] > 0 && isPopUp)
             {
                 UnPopup();
             }
-            else if (queue[beatIndex + 5] > 0)
+            if (queue[beatIndex + 3] > 0 && !isPreparing)
             {
                 PrepareToPopup();
             }
