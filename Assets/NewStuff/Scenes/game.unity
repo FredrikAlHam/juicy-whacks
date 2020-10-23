@@ -795,9 +795,7 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
-  isPopUp: 0
-  hasBeenhit: 0
-  isPreparing: 0
+  points: 0
   animator: {fileID: 33433501}
   anim: {fileID: 7400000, guid: 0db5a9391f58ee948ad01dafc5b9381d, type: 2}
   animatorAxe: {fileID: 1734894562}
@@ -1103,9 +1101,7 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
-  isPopUp: 0
-  hasBeenhit: 0
-  isPreparing: 0
+  points: 0
   animator: {fileID: 402695648}
   anim: {fileID: 7400000, guid: 1d77ca5e75c84b742bc586ca071a48ea, type: 2}
   animatorAxe: {fileID: 105648475}
@@ -1208,7 +1204,8 @@ AudioSource:
   m_GameObject: {fileID: 588836819}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 406f499f2ba0865448bab46ef00d08f4,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 78b0e62200ab2e149a9e6ab461a2ae53, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -1818,9 +1815,7 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
-  isPopUp: 0
-  hasBeenhit: 0
-  isPreparing: 0
+  points: 0
   animator: {fileID: 2076555103}
   anim: {fileID: 7400000, guid: 6eeb7cbbb0108b54cb9a8e6c35b5cb28, type: 2}
   animatorAxe: {fileID: 1274441017}
@@ -2597,9 +2592,7 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
-  isPopUp: 0
-  hasBeenhit: 0
-  isPreparing: 0
+  points: 0
   animator: {fileID: 569043694}
   anim: {fileID: 7400000, guid: 1ad6d76ca3887014faf58a25d024f0b2, type: 2}
   animatorAxe: {fileID: 655275721}
@@ -2739,9 +2732,7 @@ MonoBehaviour:
   queue: 00000000000000000000000000000000000000000000000000000000000000000000000000000000
   beatIndex: 0
   timeSinceLastBeat: 0
-  isPopUp: 0
-  hasBeenhit: 0
-  isPreparing: 0
+  points: 0
   animator: {fileID: 271372822}
   anim: {fileID: 7400000, guid: 17e1fe4723e44d6419fbb0fc404490f0, type: 2}
   animatorAxe: {fileID: 743250211}
@@ -2845,9 +2836,7 @@ MonoBehaviour:
   queue: 
   beatIndex: 0
   timeSinceLastBeat: 0
-  isPopUp: 0
-  hasBeenhit: 0
-  isPreparing: 0
+  points: 0
   animator: {fileID: 769413519}
   anim: {fileID: 7400000, guid: 77b30a886bfa8d840b5964441fb278b4, type: 2}
   animatorAxe: {fileID: 1899971410}

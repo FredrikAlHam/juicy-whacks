@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 namespace AudioUtilities
@@ -13,7 +14,6 @@ namespace AudioUtilities
         SongPlayer player = null;
         new AudioSource audio = null;
         public static bool IsDone { get; private set; } = false;
-
 
         // Start is called before the first frame update
         void Awake()
@@ -44,7 +44,6 @@ namespace AudioUtilities
                 }
             }
 
-
         }
 
 
@@ -65,7 +64,7 @@ namespace AudioUtilities
             player.Pause();
         }
 
-
+        
 
     }
 }
