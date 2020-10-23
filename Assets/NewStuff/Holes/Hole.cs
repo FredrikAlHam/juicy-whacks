@@ -23,6 +23,8 @@ public class Hole : MonoBehaviour
 
     public Animator animatorOSU;  //animator that controls (circle/feedback thingy) when to animate
 
+    public AudioSource axeSource;
+
 
     SpriteRenderer sR = null;
     // Use this for initialization
@@ -35,6 +37,7 @@ public class Hole : MonoBehaviour
     {
         animatorAxe.SetTrigger("Swing");  //when you hit (i.e. Press (L, K, J, F, D or S)) it will play this animation
         IsHit = true;  //Activate true/false statement so that the game knows that one of these keys are pressed
+        axeSource.Play();
     }
 
     public virtual void UnHit()
