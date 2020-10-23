@@ -53,7 +53,7 @@ namespace AudioUtilities
             {
                 Beat = song.beats[BeatIndex];
                 BeatIndex++;
-                Debug.Log("on beat " + BeatIndex);
+                //Debug.Log("on beat " + BeatIndex);
             }
         }
 
