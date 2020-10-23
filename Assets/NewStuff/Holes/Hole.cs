@@ -12,8 +12,9 @@ public class Hole : MonoBehaviour
     public float timeSinceLastBeat = 0;
     // Start is called before the first frame update
 
-    private bool isPopUp = false;
-    public int points = 0;
+    [SerializeField] private bool isPopUp = false;
+    [SerializeField] private bool hasBeenhit = false;
+    [SerializeField] private bool isPreparing = false;
 
     public Animator animator;  //animator that controls (beavers) when to animate - Erik
     public AnimationClip anim;
@@ -48,48 +49,48 @@ public class Hole : MonoBehaviour
 
     public virtual void PrepareToPopup()
     {
+        isPreparing = true;
         animatorOSU.SetTrigger("OSU");  //When the beatindex + (*Some number*) equals 1...
     }                                   //Or, at the time we set; this animation will play. Showing where beaver will pop up - Erik
     public virtual void Popup()
     {
+        isPreparing = false;
 
         animator.SetTrigger("PopUp");  //Play "PopUp" animation when this is activated
         animatorOSU.SetTrigger("No");  //this will activate the "idle" animation for the OSU circle, moving it out of view - Erik
         //timeSinceLastBeat = 0f;  //(reset the time since last beat)(testCode)(Remove)
         //sR.color = Color.green;  //(blinks)(testCode)(Remove)
         isPopUp = true;  //activates bool, telling the game that a beaver has popped up - Erik
+
+        hasBeenhit = false;
     }
 
 
 
     public virtual void UnPopup()
     {
+        if (!hasBeenhit) Score.instance.score--;
         animator.SetTrigger("UnPopUp");  //play the "UnPopUp" Animation
         //timeSinceLastBeat += Time.deltaTime; 
         //sR.color = Color.white;
+        isPopUp = false;
     }
     protected virtual void Update()
     {
 
-        if (IsHit == true && isPopUp == true && queue[beatIndex + 1] > 0)
-        {
-            //gib points
-            //points++;
-            //Debug.Log("scoree" + points);
-        }
-
+        //There must be a better way to do this
         try
         {
             if (queue.Count == 0 || queue.Count < beatIndex) return;
-            else if (queue[beatIndex] > 0)
+            if (queue[beatIndex] > 0 && !isPopUp)
             {
                 Popup();
             }
-            else if (queue[beatIndex - 3] > 0)
+            if (queue[beatIndex - 3] > 0 && isPopUp)
             {
                 UnPopup();
             }
-            else if (queue[beatIndex + 5] > 0)
+            else if (queue[beatIndex + 5] > 0 && !isPreparing)
             {
                 PrepareToPopup();
             }
