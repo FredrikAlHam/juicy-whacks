@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 namespace AudioUtilities
@@ -13,7 +14,6 @@ namespace AudioUtilities
         SongPlayer player = null;
         new AudioSource audio = null;
         public static bool IsDone { get; private set; } = false;
-
 
         // Start is called before the first frame update
         void Awake()
@@ -45,11 +45,25 @@ namespace AudioUtilities
             }
 
 
+            //harriets if the "ShoulPause" Variable is true - then the Pause function should start
+            if (MenuScripts.ShouldPause)
+            {
+                Pause();
+
+            }
+            //harriets if the "shouldPause" Variable is false - then the UnPause function should start
+            if (MenuScripts.ShouldPause == false)
+            {
+                //Pause();
+                UnPause();
+            }
+
         }
 
 
         public void Play(Song song)
         {
+            Debug.Log($"Playing {song.songName}");
             player = new SongPlayer();
             player.Play(song);
             audio.PlayOneShot(song.clip);
@@ -65,7 +79,13 @@ namespace AudioUtilities
             player.Pause();
         }
 
-
+        //Harriet gör saker för hon är trött och vill få detta donw with
+        public void UnPause()
+        {
+            audio.UnPause();
+            player.Pause();
+        //NÅGOT MED PLAYER? - Fixat
+        }
 
     }
 }

@@ -1,19 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using AudioUtilities;
 
-//Hej Tobbe, Jag (Harriet) har skrivit på engelska, jag hoppas det är okej :3 Also hela det här scriptet är mitt, yay.
+//Made by Harriet
 public class MenuScripts : MonoBehaviour
 {
-    
+
     //Declares that a pair of Controls named "controls" will be used, they are currently nothing.
     Controls controls = null;
 
     //Used to prevent multiples of the same level.
     private bool loadingLevel;
+    public static bool ShouldPause = false;
+    bool gameDone;
 
     //For Volume Options
     public AudioMixer mixerAmbience;
@@ -24,23 +24,24 @@ public class MenuScripts : MonoBehaviour
     private bool slower;
     #endregion
 
-    public void Start() 
+    public void Start()
     {
+        //Updates the vlume for the music mixer and the ambience mixer.
         mixerAmbience.SetFloat("AmbienceVol", Mathf.Log10(PlayerPrefs.GetFloat("AmbienceVolume", 0.75f)) * 20);
         mixerMusic.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume", 0.75f)) * 20);
 
         //Enables the controls.
         controls = new Controls();
         controls.UI.Enable();
-        
 
-       
+
+
     }
 
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; //Fungerar inte om musen är utanför gameviewn i editorn bär spelet startas 
+        Cursor.visible = false; //Fungerar inte om musen är utanför gameviewn i editorn när spelet startas - Fredrik
     }
 
     public void Update()
@@ -55,7 +56,7 @@ public class MenuScripts : MonoBehaviour
         #endregion
 
         //if the player presses space...
-        if (controls.UI.Pause.triggered && controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started )
+        if (controls.UI.Pause.triggered && controls.UI.Pause.phase == UnityEngine.InputSystem.InputActionPhase.Started)
         {
 
             #region if game is loaded
@@ -63,17 +64,30 @@ public class MenuScripts : MonoBehaviour
             if (SceneManager.GetSceneByName("game").isLoaded)
             {
                 //and neither "pause" or "volume" is loaded...
-                if ( !SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded) //(!slower &&
+                if (!SceneManager.GetSceneByName("PauseMenu").isLoaded && !SceneManager.GetSceneByName("VolumeMenu").isLoaded) //(!slower &&
                 {
                     //open the pause scene additionally and waits for the action to be completed.
                     SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive).completed += (x) => { loadingLevel = false; };
                     loadingLevel = true;
+                    //Pauses the game
+                    ShouldPause = true;
+
+
+                    //GameSongPlayer.Pause();
+                    //FREDRIK HÄR KOLLA HIT HALLÅ!!!!!
+                    //Det är här som spelet borde pausas - alltså när man trycker på space och är i game - sammtidigt som paus menyn och volym menyn inte är laddade!!!!!!!!!!!!
 
                 }
 
                 //and "pause" is loaded...
                 if (SceneManager.GetSceneByName("PauseMenu").isLoaded)//(!slower && 
                 {
+                    //FREDRIK HÄR KOLLA HIT HALLÅ!!!!! NUMMERO DOS (Det finns en nummero tres längre ner i functions for Pause Menu)!!!!!!!!!!!!
+                    //Det är här som spelet borde UN-pausas 
+
+                    //unpauses the game
+                    ShouldPause = false;
+
                     //close pause.
                     SceneManager.UnloadSceneAsync("PauseMenu");
                     //slower = true;
@@ -81,14 +95,13 @@ public class MenuScripts : MonoBehaviour
                 }
                 //and volume is loaded...
                 if (SceneManager.GetSceneByName("VolumeMenu").isLoaded)
-                {;
+                {
+                    
                     //open pause additionaly.
                     SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive).completed += (x) => { loadingLevel = false; };
                     //close volume.
                     SceneManager.UnloadSceneAsync("VolumeMenu");
                     loadingLevel = true;
-                    //slower = true
-                    //Invoke("SlowerFunction", 1.0f);
 
                 }
 
@@ -96,43 +109,41 @@ public class MenuScripts : MonoBehaviour
             #endregion
 
             #region else
-            //and the scene "VolumeMenu" is loaded...
-            if (SceneManager.GetSceneByName("VolumeMenu").isLoaded && !SceneManager.GetSceneByName("game").isLoaded)
-            {
-                //load MainMenu.
-                SceneManager.LoadSceneAsync("MainMenu");
-            }
-
-            //and the scene "EndCredits" is loaded...
-            if (SceneManager.GetSceneByName("EndCredits").isLoaded)
-            {
-                //load MainMenu.
-                SceneManager.LoadSceneAsync("MainMenu");
-            }
-
-            //and the scene "IntroScene" is loaded...
-            if (SceneManager.GetSceneByName("IntroScene").isLoaded)
+            //and the scene "VolumeMenu" is loaded (without the game being loaded)... //and the scene "EndCredits" is loaded... //and the scene "IntroScene" is loaded...
+            if (SceneManager.GetSceneByName("VolumeMenu").isLoaded && !SceneManager.GetSceneByName("game").isLoaded || SceneManager.GetSceneByName("EndCredits").isLoaded || SceneManager.GetSceneByName("IntroScene").isLoaded)
             {
                 //load MainMenu.
                 SceneManager.LoadSceneAsync("MainMenu");
             }
             #endregion
         }
+
+
+        //If the song aka the game is finished then..
+        if (GameSongPlayer.IsDone && SceneManager.GetSceneByName("game").isLoaded)
+        {
+            //load WinMenu scene
+            SceneManager.LoadSceneAsync("WinMenu");
+            //Score.instance.score;
+        } 
     }
 
     #region not used
     //This function makes the variable slower false - it is used to prevent the scenes from switching to and fro uncontrollably fast when pressing space;
-   /* public void SlowerFunction() 
-    {
-        slower = false;
-    }*/
-    #endregion 
+    /* public void SlowerFunction() 
+     {
+         slower = false;
+     }*/
+    #endregion
 
     #region functions for the MainMenu
     //This function loads the "game" scene.
     public void Play()
     {
         SceneManager.LoadSceneAsync("SongSelection");
+        //Makes sure the game is not paused 
+        //HEJ KOLLA HIT FREDRIK  NUmmero quatro!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ShouldPause = false;
     }
     //This function loads the "VolumeMenu" scene.
     public void Volume()
@@ -176,6 +187,12 @@ public class MenuScripts : MonoBehaviour
     public void UnPause()
     {
         SceneManager.UnloadSceneAsync("PauseMenu");
+
+        //FREDRIK HÄR KOLLA HIT HALLÅ!!!!! NUMMERO TRES !!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //här borde spelet också UN-pausas
+
+        //Un Pauses the game
+        ShouldPause = false;
     }
     //This function loads the "VolumeMenu" scene additionaly.
     public void VolumeAdd()
@@ -193,6 +210,7 @@ public class MenuScripts : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");
+        //GameSongPlayer.IsDone = false;
     }
     #endregion
 

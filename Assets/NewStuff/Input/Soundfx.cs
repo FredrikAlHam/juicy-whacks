@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//Harriets kod.
+//Made by Harriet
 
 //playing sounds when buttons are selected through keys uses ISelectHandler
 public class Soundfx : MonoBehaviour, ISelectHandler
@@ -24,9 +24,7 @@ public class Soundfx : MonoBehaviour, ISelectHandler
 
 
     public bool controlSliders = false;
-    [SerializeField]
     public Slider sliderAmbience;
-    [SerializeField]
     public Slider sliderMusic;
 
     // Start is called before the first frame update
