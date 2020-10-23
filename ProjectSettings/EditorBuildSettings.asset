@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/NewStuff/Scenes/IntroScene.unity
+    guid: 92b696c8093aee945a8990bccffea4b0
+  - enabled: 1
     path: Assets/NewStuff/Scenes/MainMenu.unity
     guid: 1659e7c9c72fd924aa2d4feb4c516f3b
   - enabled: 1
@@ -18,10 +21,10 @@ EditorBuildSettings:
     path: Assets/NewStuff/Scenes/volumeMenu.unity
     guid: b60301665d1f4c54fa7659c01f6d577c
   - enabled: 1
-    path: Assets/NewStuff/Scenes/loseMenu.unity
+    path: Assets/NewStuff/Scenes/LoseMenu.unity
     guid: ccac92d70dda19240bdae55a6eeafd69
   - enabled: 1
-    path: Assets/NewStuff/Scenes/winMenu.unity
+    path: Assets/NewStuff/Scenes/WinMenu.unity
     guid: ab9d52b463b1647488fe723f08b1aa26
   - enabled: 1
     path: Assets/NewStuff/Scenes/EndCredits.unity
