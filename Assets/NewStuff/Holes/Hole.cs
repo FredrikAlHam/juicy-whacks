@@ -88,9 +88,9 @@ public class Hole : MonoBehaviour
             }
             if (queue[beatIndex - 3] > 0 && isPopUp)
             {
-                UnPopup();
+                UnPopup(); 
             }
-            else if (queue[beatIndex + 5] > 0 && !isPreparing)
+            if (queue[beatIndex + 5] > 0 && !isPreparing)
             {
                 PrepareToPopup();
             }
