@@ -1,3 +1,3 @@
 # juicy-whacks
  
-Credits can be found [Here](CREDITS.md)
+Credits for audio can be found [Here](CREDITS.md)
