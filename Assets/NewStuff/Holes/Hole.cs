@@ -23,6 +23,8 @@ public class Hole : MonoBehaviour
 
     public Animator animatorOSU;  //animator that controls (circle/feedback thingy) when to animate
 
+    public AudioSource axeSource;  //Audiosource that is connected to the axe swinging sound effect
+
 
     SpriteRenderer sR = null;
     // Use this for initialization
@@ -34,35 +36,36 @@ public class Hole : MonoBehaviour
     public virtual void Hit()
     {
         animatorAxe.SetTrigger("Swing");  //when you hit (i.e. Press (L, K, J, F, D or S)) it will play this animation
-        IsHit = true;  //Activate true/false statement so that the game knows that one of these keys are pressed
+        IsHit = true;  //Activate TRUE/false statement so that the game knows that one of these keys are pressed
+        axeSource.Play();  //Activates sound effect for when swinging the ax
     }
 
     public virtual void UnHit()
     {
-        animatorAxe.SetTrigger("UnSwing");
-        IsHit = false;
+        animatorAxe.SetTrigger("UnSwing"); //when you let go of (L, K, J, F, D or S) then this animation will play
+        IsHit = false;  //Activate true/FALSE statement so that the game knows that one of these keys are pressed
     }
 
     public virtual void PrepareToPopup()
     {
-        animatorOSU.SetTrigger("OSU");
-    }
+        animatorOSU.SetTrigger("OSU");  //When the beatindex + (*Some number*) equals 1...
+    }                                   //Or, at the time we set; this animation will play. Showing where beaver will pop up
     public virtual void Popup()
     {
 
-        animator.SetTrigger("PopUp");
-        animatorOSU.SetTrigger("No");
-        timeSinceLastBeat = 0f;
-        sR.color = Color.green;
-        isPopUp = true;
+        animator.SetTrigger("PopUp");  //Play "PopUp" animation when this is activated
+        animatorOSU.SetTrigger("No");  //this will activate the "idle" animation for the OSU circle, moving it out of view
+        timeSinceLastBeat = 0f;  //(reset the time since last beat)(testCode)(Remove)
+        sR.color = Color.green;  //(blinks)(testCode)(Remove)
+        isPopUp = true;  //activates bool, telling the game that a beaver has popped up
     }
 
 
 
     public virtual void UnPopup()
     {
-        animator.SetTrigger("UnPopUp");
-        timeSinceLastBeat += Time.deltaTime;
+        animator.SetTrigger("UnPopUp");  //play the "UnPopUp" Animation
+        timeSinceLastBeat += Time.deltaTime; 
         sR.color = Color.white;
     }
     protected virtual void Update()
@@ -71,8 +74,8 @@ public class Hole : MonoBehaviour
         if (IsHit == true && isPopUp == true && queue[beatIndex + 1] > 0)
         {
             //gib points
-            points++;
-            Debug.Log("scoree" + points);
+            //points++;
+            //Debug.Log("scoree" + points);
         }
 
         try

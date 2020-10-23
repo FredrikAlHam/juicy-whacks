@@ -10,15 +10,15 @@ public class SongSelection : MonoBehaviour
     [SerializeField] Transform parent;
     private void Start()
     {
-        if (SongImporter.Ready) SongImporter_Complete();
+        if (SongImporter.Ready) SongImporter_Complete(); //If already ready, Complete event will not be called so we call the method here instead
     }
     private void OnEnable()
     {
-        SongImporter.Complete += SongImporter_Complete;
+        SongImporter.Complete += SongImporter_Complete; //Subscribe to songimporter event
     }
     private void OnDisable()
     {
-        SongImporter.Complete -= SongImporter_Complete;
+        SongImporter.Complete -= SongImporter_Complete; //Unsubscribe from SongImporter event
     }
 
     private void SongImporter_Complete()
