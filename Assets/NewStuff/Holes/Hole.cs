@@ -15,15 +15,15 @@ public class Hole : MonoBehaviour
     private bool isPopUp = false;
     public int points = 0;
 
-    public Animator animator;  //animator that controls (beavers) when to animate
+    public Animator animator;  //animator that controls (beavers) when to animate - Erik
     public AnimationClip anim;
 
-    public Animator animatorAxe;  //animator that controls (Axe) when to animate
+    public Animator animatorAxe;  //animator that controls (Axe) when to animate - Erik
     public AnimationClip axeAnim;
 
-    public Animator animatorOSU;  //animator that controls (circle/feedback thingy) when to animate
+    public Animator animatorOSU;  //animator that controls (circle/feedback thingy) when to animate - Erik
 
-    public AudioSource axeSource;  //Audiosource that is connected to the axe swinging sound effect
+    public AudioSource axeSource;  //Audiosource that is connected to the axe swinging sound effect - Erik
 
 
     SpriteRenderer sR = null;
@@ -35,29 +35,29 @@ public class Hole : MonoBehaviour
 
     public virtual void Hit()
     {
-        animatorAxe.SetTrigger("Swing");  //when you hit (i.e. Press (L, K, J, F, D or S)) it will play this animation
-        IsHit = true;  //Activate TRUE/false statement so that the game knows that one of these keys are pressed
-        axeSource.Play();  //Activates sound effect for when swinging the ax
+        animatorAxe.SetTrigger("Swing");  //when you hit (i.e. Press (L, K, J, F, D or S)) it will play this animation - Erik
+        IsHit = true;  //Activate TRUE/false statement so that the game knows that one of these keys are pressed - Erik
+        axeSource.Play();  //Activates sound effect for when swinging the ax - Erik
     }
 
     public virtual void UnHit()
     {
-        animatorAxe.SetTrigger("UnSwing"); //when you let go of (L, K, J, F, D or S) then this animation will play
-        IsHit = false;  //Activate true/FALSE statement so that the game knows that one of these keys are pressed
+        animatorAxe.SetTrigger("UnSwing"); //when you let go of (L, K, J, F, D or S) then this animation will play - Erik
+        IsHit = false;  //Activate true/FALSE statement so that the game knows that one of these keys are pressed - Erik
     }
 
     public virtual void PrepareToPopup()
     {
         animatorOSU.SetTrigger("OSU");  //When the beatindex + (*Some number*) equals 1...
-    }                                   //Or, at the time we set; this animation will play. Showing where beaver will pop up
+    }                                   //Or, at the time we set; this animation will play. Showing where beaver will pop up - Erik
     public virtual void Popup()
     {
 
         animator.SetTrigger("PopUp");  //Play "PopUp" animation when this is activated
-        animatorOSU.SetTrigger("No");  //this will activate the "idle" animation for the OSU circle, moving it out of view
-        timeSinceLastBeat = 0f;  //(reset the time since last beat)(testCode)(Remove)
-        sR.color = Color.green;  //(blinks)(testCode)(Remove)
-        isPopUp = true;  //activates bool, telling the game that a beaver has popped up
+        animatorOSU.SetTrigger("No");  //this will activate the "idle" animation for the OSU circle, moving it out of view - Erik
+        //timeSinceLastBeat = 0f;  //(reset the time since last beat)(testCode)(Remove)
+        //sR.color = Color.green;  //(blinks)(testCode)(Remove)
+        isPopUp = true;  //activates bool, telling the game that a beaver has popped up - Erik
     }
 
 
@@ -65,8 +65,8 @@ public class Hole : MonoBehaviour
     public virtual void UnPopup()
     {
         animator.SetTrigger("UnPopUp");  //play the "UnPopUp" Animation
-        timeSinceLastBeat += Time.deltaTime; 
-        sR.color = Color.white;
+        //timeSinceLastBeat += Time.deltaTime; 
+        //sR.color = Color.white;
     }
     protected virtual void Update()
     {
