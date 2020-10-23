@@ -37,9 +37,14 @@ public class Hole : MonoBehaviour
 
     public virtual void Hit()
     {
+
         animatorAxe.SetTrigger("Swing");  //when you hit (i.e. Press (L, K, J, F, D or S)) it will play this animation - Erik
         IsHit = true;  //Activate TRUE/false statement so that the game knows that one of these keys are pressed - Erik
-        axeSource.Play();  //Activates sound effect for when swinging the ax - Erik
+
+        if (MenuScripts.ShouldPause == false)//If the game is not paused - Harriet
+        {
+            axeSource.Play();  //Activates sound effect for when swinging the ax - Erik
+        }
     }
 
     public virtual void UnHit()

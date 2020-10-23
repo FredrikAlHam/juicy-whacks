@@ -26,7 +26,7 @@ public class MenuScripts : MonoBehaviour
 
     public void Start()
     {
-        //Updates the vlume for the music mixer and the ambience mixer.
+        //Updates the volume for the music mixer and the ambience mixer.
         mixerAmbience.SetFloat("AmbienceVol", Mathf.Log10(PlayerPrefs.GetFloat("AmbienceVolume", 0.75f)) * 20);
         mixerMusic.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume", 0.75f)) * 20);
 
