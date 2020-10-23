@@ -7,6 +7,7 @@ namespace AudioUtilities
     {
         public Beat Beat { get; private set; } = new Beat() { holeIndecies = new int[] { 0, 0, 0, 0, 0, 0 } };
         public bool IsPlaying { get; private set; } = false;
+        public bool IsDone { get; private set; } = false;
         private Song song = null;
         public int BeatIndex { get; private set; } = 0;
         private Timer beatTimer = new Timer();
@@ -37,6 +38,7 @@ namespace AudioUtilities
             {
                 IsPlaying = false;
                 beatTimer.Stop();
+                IsDone = true;
             }
             else
             {
