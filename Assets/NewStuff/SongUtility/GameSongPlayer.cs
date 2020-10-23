@@ -54,8 +54,8 @@ namespace AudioUtilities
             //harriets if the "shouldPause" Variable is false - then the UnPause function should start
             if (MenuScripts.ShouldPause == false)
             {
-                Pause();
-                //UnPause();
+                //Pause();
+                UnPause();
             }
 
         }
@@ -63,6 +63,7 @@ namespace AudioUtilities
 
         public void Play(Song song)
         {
+            Debug.Log($"Playing {song.songName}");
             player = new SongPlayer();
             player.Play(song);
             audio.PlayOneShot(song.clip);
@@ -82,7 +83,8 @@ namespace AudioUtilities
         public void UnPause()
         {
             audio.UnPause();
-        //NÅGOT MED PLAYER?
+            player.Pause();
+        //NÅGOT MED PLAYER? - Fixat
         }
 
     }
