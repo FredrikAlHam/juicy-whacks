@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Timers;
+using UnityEngine;
 
 namespace AudioUtilities
 {
@@ -30,7 +31,15 @@ namespace AudioUtilities
         }
         public void Pause()
         {
-            beatTimer.Enabled = !beatTimer.Enabled;
+            if (beatTimer.Enabled)
+            {
+                beatTimer.Stop();
+            }
+            else
+            {
+                beatTimer.Start();
+            }
+            
         }
         private void BeatTimer_Elapsed(object sender, ElapsedEventArgs e)
         {
@@ -44,7 +53,7 @@ namespace AudioUtilities
             {
                 Beat = song.beats[BeatIndex];
                 BeatIndex++;
-                //Debug.Log("on beat " + BeatIndex);
+                Debug.Log("on beat " + BeatIndex);
             }
         }
 

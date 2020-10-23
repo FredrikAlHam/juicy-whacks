@@ -14,6 +14,7 @@ namespace AudioUtilities
         SongPlayer player = null;
         new AudioSource audio = null;
         public static bool IsDone { get; private set; } = false;
+        public bool IsPaused { get; private set; } = false;
 
         // Start is called before the first frame update
         void Awake()
@@ -46,13 +47,13 @@ namespace AudioUtilities
 
 
             //harriets if the "ShoulPause" Variable is true - then the Pause function should start
-            if (MenuScripts.ShouldPause)
+            if (MenuScripts.ShouldPause && !IsPaused)
             {
                 Pause();
 
             }
             //harriets if the "shouldPause" Variable is false - then the UnPause function should start
-            if (MenuScripts.ShouldPause == false)
+            if (MenuScripts.ShouldPause == false && IsPaused)
             {
                 //Pause();
                 UnPause();
@@ -75,6 +76,7 @@ namespace AudioUtilities
         }
         public void Pause()
         {
+            IsPaused = true;
             audio.Pause();
             player.Pause();
         }
@@ -82,6 +84,7 @@ namespace AudioUtilities
         //Harriet gör saker för hon är trött och vill få detta donw with
         public void UnPause()
         {
+            IsPaused = false;
             audio.UnPause();
             player.Pause();
         //NÅGOT MED PLAYER? - Fixat
