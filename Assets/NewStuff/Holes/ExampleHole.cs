@@ -3,6 +3,11 @@ using System.Collections;
 
 public class ExampleHole : Hole
 {
+    /*
+     Example of inherited hole script, for simplicity's sake we didn't go this route (You should have preached
+     about the advantages of inheritance more Tobbe) - F
+         */
+
     SpriteRenderer sR = null;
     // Use this for initialization
     void Start()

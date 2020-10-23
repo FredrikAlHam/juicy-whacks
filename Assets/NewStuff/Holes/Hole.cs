@@ -5,9 +5,10 @@ using UnityEngine.Animations;
 
 public class Hole : MonoBehaviour
 {
+    /*This script was supposed to be inherited but it didn't happen - F*/
     [SerializeField] public bool IsHit { get; private set; } = false;
 
-    [SerializeField] public List<int> queue = new List<int>();
+    [SerializeField] public List<int> queue = new List<int>(); //Not happy with this system of communicating with the holes and letting them handle it themselves - F
     public int beatIndex = 0;
     public float timeSinceLastBeat = 0;
     // Start is called before the first frame update
@@ -27,7 +28,7 @@ public class Hole : MonoBehaviour
     public AudioSource axeSource;  //Audiosource that is connected to the axe swinging sound effect - Erik
 
 
-    SpriteRenderer sR = null;
+    SpriteRenderer sR = null; //Was used earlier for testing, as can be seen in ExampleHole.cs - F
     // Use this for initialization
     void Start()
     {
@@ -71,14 +72,14 @@ public class Hole : MonoBehaviour
     {
         if (!hasBeenhit) Score.instance.score--;
         animator.SetTrigger("UnPopUp");  //play the "UnPopUp" Animation
-        //timeSinceLastBeat += Time.deltaTime; 
+        //timeSinceLastBeat += Time.deltaTime; //Was supposed to tie in with score but it was rushed in the end thus it didn't come into play - F
         //sR.color = Color.white;
         isPopUp = false;
     }
     protected virtual void Update()
     {
 
-        //There must be a better way to do this
+        //There must be a better way to do this. I'm almost embarrased over this code seriously - F
         try
         {
             if (queue.Count == 0 || queue.Count < beatIndex) return;
@@ -97,7 +98,7 @@ public class Hole : MonoBehaviour
         }
         catch (ArgumentOutOfRangeException)
         {
-
+            //Really lazy here - F
         }
     }
 }

@@ -5,6 +5,14 @@ using UnityEngine.UI;
 
 public class SongEditor : MonoBehaviour
 {
+    /*This is about to be obsoletet, but it works atleast, also needs some multithreading to not freeze the entire 
+     game/the whole of unity when loading and saving. I'm working on my free time on this as a side project so that maybe in the future it
+     just work by reading MIDI instead (Progress on that front might exist on another branch) - F
+
+
+     *** IMPORTANT!! DO NOT REFRESH/RECOMPILE SOLUTION WHILE THE EDITOR IS RUNNING!!! THE GAME/EDITOR WILL CRASH ***
+     */
+
     public GameObject ViewPort = null;
     public GameObject TrackTemplate = null;
     public GameObject LabelTemplate = null;
@@ -85,11 +93,6 @@ public class SongEditor : MonoBehaviour
     private void OnDisable()
     {
         SongImporter.Complete -= SongImporter_Complete;
-
-    }
-    // Update is called once per frame
-    void Update()
-    {
 
     }
 }

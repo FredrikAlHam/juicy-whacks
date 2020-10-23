@@ -7,20 +7,14 @@ namespace AudioUtilities
 
     public class GameSongPlayer : MonoBehaviour
     {
-        public static GameSongPlayer Instance { get; private set; } = null;
 
-        [SerializeField] bool playFirstSongOnStart = false;
+        [SerializeField] bool playFirstSongOnStart = false; //Used úp until last moment when we didn't have a song selection screem - F
 
         SongPlayer player = null;
-        new AudioSource audio = null;
+        new AudioSource audio = null; // Why is audio inheritet from MonoBehaviour and if it's marked as obsolete do I still need the new keyworkd >:( - F
         public static bool IsDone { get; private set; } = false;
         public bool IsPaused { get; private set; } = false;
 
-        // Start is called before the first frame update
-        void Awake()
-        {
-            if (Instance == null) Instance = this; else Destroy(this);
-        }
         private void Start()
         {
             audio = GetComponent<AudioSource>();
@@ -71,14 +65,14 @@ namespace AudioUtilities
             for (int i = 0; i < Holes.holes.Length; i++)
             {
                 //Debug.Log($"Filling hole {i}");
-                Holes.holes[i].GetComponent<Hole>().queue = song.GetIntArray(i);
+                Holes.holes[i].GetComponent<Hole>().queue = song.GetIntArray(i); // I don't like how this works - F
             }
         }
         public void Pause()
         {
             IsPaused = true;
             audio.Pause();
-            player.Pause();
+            player.Pause(); 
         }
 
         //Harriet gör saker för hon är trött och vill få detta donw with
@@ -87,7 +81,6 @@ namespace AudioUtilities
             IsPaused = false;
             audio.UnPause();
             player.Pause();
-        //NÅGOT MED PLAYER? - Fixat
         }
 
     }

@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class SongSelection : MonoBehaviour
 {
+    /*Made 100% by F, explaining why the UI and the interactions with them is so Janky - F*/ 
     public static Song selection = null;
 
     [SerializeField] GameObject template;
@@ -27,7 +28,7 @@ public class SongSelection : MonoBehaviour
         foreach (Song song in SongImporter.Songs)
         {
             GameObject gO = Instantiate(template, parent);
-            gO.GetComponent<Button>().Select(); // Because no selectable objects exists when entering the scene the script selects the last button to be selected
+            gO.GetComponent<Button>().Select(); // Because no selectable objects exists when entering the scene the script selects the last button to be selected // Half worked
             gO.GetComponentInChildren<Text>().text = song.name;
             gO.GetComponent<SongSelectionButton>().song = song;
             gO.SetActive(true);

@@ -6,6 +6,7 @@ namespace AudioUtilities
 {
     public class SongPlayer : IDisposable
     {
+        /*Whole class written by F*/ 
         public Beat Beat { get; private set; } = new Beat() { holeIndecies = new int[] { 0, 0, 0, 0, 0, 0 } };
         public bool IsPlaying { get; private set; } = false;
         public bool IsDone { get; private set; } = false;
@@ -59,6 +60,7 @@ namespace AudioUtilities
 
         public void Dispose()
         {
+            //Hopefully to stop a memoryleak I discovered and also because beatTimer continued dispite the game being stopped because Timer callbacks aren't run on the main thread
             beatTimer.Stop();
             beatTimer.Dispose();
         }

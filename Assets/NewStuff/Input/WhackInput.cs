@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class WhackInput : MonoBehaviour
 {
+    /*Still learning about the new InputSystem, realized halfway through that there is an option to have both
+     *the old and the new inputsystem at the same time. - F*/
     [SerializeField] int maxActiveWhacks = 99;
     int activeWhacks;
 
@@ -46,7 +48,6 @@ public class WhackInput : MonoBehaviour
 
     private void UnWhack(InputAction.CallbackContext obj)
     {
-
         int holeIndex = 0;
         switch (obj.action.name)
         {
@@ -107,11 +108,5 @@ public class WhackInput : MonoBehaviour
         holeIndex--;
         Hole hole = Holes.holes[holeIndex].GetComponent<Hole>();
         hole.Hit();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
