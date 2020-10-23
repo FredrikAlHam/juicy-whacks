@@ -14,7 +14,7 @@ public class SongSelectionButton : Button
     private void OnClick()
     {
         SongSelection.selection = song;
-        Debug.Log(song.name);
+        Debug.Log($"{song.name} is selected");
         Play();
     }
     public void Play()

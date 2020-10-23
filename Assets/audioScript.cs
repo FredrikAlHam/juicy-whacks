@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using AudioUtilities;
 using UnityEngine;
 
 public class audioScript : MonoBehaviour
@@ -16,10 +15,10 @@ public class audioScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SongImporter.Ready && !audioSource.isPlaying)
+        if (SongImporter.Ready && !audioSource.isPlaying)
         {
             audioSource.PlayOneShot(SongImporter.MenuAudioClips[0]);
         }
-        
+
     }
 }

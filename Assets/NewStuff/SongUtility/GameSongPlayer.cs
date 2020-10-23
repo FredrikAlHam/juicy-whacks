@@ -12,6 +12,8 @@ namespace AudioUtilities
 
         SongPlayer player = null;
         new AudioSource audio = null;
+        public static bool IsDone { get; private set; } = false;
+
 
         // Start is called before the first frame update
         void Awake()
@@ -36,6 +38,10 @@ namespace AudioUtilities
             if(!(player == null) && !player.IsPlaying)
             {
                 audio.Stop();
+                if (player.IsDone)
+                {
+                    IsDone = true;
+                }
             }
 
 
