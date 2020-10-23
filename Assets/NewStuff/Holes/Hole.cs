@@ -33,7 +33,8 @@ public class Hole : MonoBehaviour
 
     public virtual void Hit()
     {
-        animatorAxe.SetTrigger("Swing");  //when you hit (i.e. Press (L, K, J, F, D or S)) it will play this animation
+        animatorAxe.SetTrigger("Swing");  //when you hit (i.e. Press (L, K, J, F, D or S)) it will play this animation - Erik
+        IsHit = true;  //Activate TRUE/false statement so that the game knows that one of these keys are pressed - Erik
         if (isPopUp && !hasBeenhit)
         {
             hasBeenhit = true;
@@ -43,7 +44,7 @@ public class Hole : MonoBehaviour
         {
             Score.instance.score--;
         }
-        IsHit = true;  //Activate true/false statement so that the game knows that one of these keys are pressed
+        axeSource.Play();  //Activates sound effect for when swinging the ax - Erik
     }
 
     public virtual void UnHit()
