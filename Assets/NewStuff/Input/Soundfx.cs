@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//Harriets kod.
+//Made by Harriet
 
 //playing sounds when buttons are selected through keys uses ISelectHandler
 public class Soundfx : MonoBehaviour, ISelectHandler

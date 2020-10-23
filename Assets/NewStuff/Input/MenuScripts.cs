@@ -3,7 +3,7 @@ using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using AudioUtilities;
 
-//Hej Tobbe, Jag (Harriet) har skrivit på engelska, jag hoppas det är okej :3 Also hela det här scriptet är mitt, yay.
+//Made by Harriet
 public class MenuScripts : MonoBehaviour
 {
 
@@ -12,7 +12,7 @@ public class MenuScripts : MonoBehaviour
 
     //Used to prevent multiples of the same level.
     private bool loadingLevel;
-
+    public static bool ShouldPause = false;
     bool gameDone;
 
     //For Volume Options
@@ -69,17 +69,24 @@ public class MenuScripts : MonoBehaviour
                     //open the pause scene additionally and waits for the action to be completed.
                     SceneManager.LoadSceneAsync("PauseMenu", LoadSceneMode.Additive).completed += (x) => { loadingLevel = false; };
                     loadingLevel = true;
+                    //Pauses the game
+                    ShouldPause = true;
 
+
+                    //GameSongPlayer.Pause();
                     //FREDRIK HÄR KOLLA HIT HALLÅ!!!!!
-                    //Det är här som spelet borde pausas - alltså när man trycker på space och är i game - sammtidigt som paus menyn och volym menyn inte är laddade
+                    //Det är här som spelet borde pausas - alltså när man trycker på space och är i game - sammtidigt som paus menyn och volym menyn inte är laddade!!!!!!!!!!!!
 
                 }
 
                 //and "pause" is loaded...
                 if (SceneManager.GetSceneByName("PauseMenu").isLoaded)//(!slower && 
                 {
-                    //FREDRIK HÄR KOLLA HIT HALLÅ!!!!! NUMMERO DOS (Det finns en nummero tres längre ner i functions for Pause Menu)
+                    //FREDRIK HÄR KOLLA HIT HALLÅ!!!!! NUMMERO DOS (Det finns en nummero tres längre ner i functions for Pause Menu)!!!!!!!!!!!!
                     //Det är här som spelet borde UN-pausas 
+
+                    //unpauses the game
+                    ShouldPause = false;
 
                     //close pause.
                     SceneManager.UnloadSceneAsync("PauseMenu");
@@ -95,8 +102,6 @@ public class MenuScripts : MonoBehaviour
                     //close volume.
                     SceneManager.UnloadSceneAsync("VolumeMenu");
                     loadingLevel = true;
-                    //slower = true
-                    //Invoke("SlowerFunction", 1.0f);
 
                 }
 
@@ -136,6 +141,9 @@ public class MenuScripts : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadSceneAsync("SongSelection");
+        //Makes sure the game is not paused 
+        //HEJ KOLLA HIT FREDRIK  NUmmero quatro!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        ShouldPause = false;
     }
     //This function loads the "VolumeMenu" scene.
     public void Volume()
@@ -179,8 +187,12 @@ public class MenuScripts : MonoBehaviour
     public void UnPause()
     {
         SceneManager.UnloadSceneAsync("PauseMenu");
-        //FREDRIK HÄR KOLLA HIT HALLÅ!!!!! NUMMERO TRES 
-        //här borde spelet också UN-pausas 
+
+        //FREDRIK HÄR KOLLA HIT HALLÅ!!!!! NUMMERO TRES !!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //här borde spelet också UN-pausas
+
+        //Un Pauses the game
+        ShouldPause = false;
     }
     //This function loads the "VolumeMenu" scene additionaly.
     public void VolumeAdd()
@@ -198,6 +210,7 @@ public class MenuScripts : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu");
+        //GameSongPlayer.IsDone = false;
     }
     #endregion
 

@@ -44,6 +44,20 @@ namespace AudioUtilities
                 }
             }
 
+
+            //harriets if the "ShoulPause" Variable is true - then the Pause function should start
+            if (MenuScripts.ShouldPause)
+            {
+                Pause();
+
+            }
+            //harriets if the "shouldPause" Variable is false - then the UnPause function should start
+            if (MenuScripts.ShouldPause == false)
+            {
+                Pause();
+                //UnPause();
+            }
+
         }
 
 
@@ -64,7 +78,12 @@ namespace AudioUtilities
             player.Pause();
         }
 
-        
+        //Harriet gör saker för hon är trött och vill få detta donw with
+        public void UnPause()
+        {
+            audio.UnPause();
+        //NÅGOT MED PLAYER?
+        }
 
     }
 }
