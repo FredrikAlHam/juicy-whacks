@@ -109,6 +109,13 @@ public class MenuScripts : MonoBehaviour
                 //load MainMenu.
                 SceneManager.LoadSceneAsync("MainMenu");
             }
+
+            //and the scene "IntroScene" is loaded...
+            if (SceneManager.GetSceneByName("IntroScene").isLoaded)
+            {
+                //load MainMenu.
+                SceneManager.LoadSceneAsync("MainMenu");
+            }
             #endregion
         }
     }
