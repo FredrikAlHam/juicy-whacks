@@ -71,24 +71,15 @@ public class MenuScripts : MonoBehaviour
                     loadingLevel = true;
                     //Pauses the game
                     ShouldPause = true;
-
-
-                    //GameSongPlayer.Pause();
-                    //FREDRIK HÄR KOLLA HIT HALLÅ!!!!!
-                    //Det är här som spelet borde pausas - alltså när man trycker på space och är i game - sammtidigt som paus menyn och volym menyn inte är laddade!!!!!!!!!!!!
-
                 }
 
                 //and "pause" is loaded...
                 if (SceneManager.GetSceneByName("PauseMenu").isLoaded)//(!slower && 
                 {
-                    //FREDRIK HÄR KOLLA HIT HALLÅ!!!!! NUMMERO DOS (Det finns en nummero tres längre ner i functions for Pause Menu)!!!!!!!!!!!!
-                    //Det är här som spelet borde UN-pausas 
-
                     //unpauses the game
                     ShouldPause = false;
 
-                    //close pause.
+                    //close pause scene.
                     SceneManager.UnloadSceneAsync("PauseMenu");
                     //slower = true;
                     //Invoke("SlowerFunction", 1.0f);
@@ -142,7 +133,6 @@ public class MenuScripts : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("SongSelection");
         //Makes sure the game is not paused 
-        //HEJ KOLLA HIT FREDRIK  NUmmero quatro!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         ShouldPause = false;
     }
     //This function loads the "VolumeMenu" scene.
@@ -187,9 +177,6 @@ public class MenuScripts : MonoBehaviour
     public void UnPause()
     {
         SceneManager.UnloadSceneAsync("PauseMenu");
-
-        //FREDRIK HÄR KOLLA HIT HALLÅ!!!!! NUMMERO TRES !!!!!!!!!!!!!!!!!!!!!!!!!!!
-        //här borde spelet också UN-pausas
 
         //Un Pauses the game
         ShouldPause = false;
