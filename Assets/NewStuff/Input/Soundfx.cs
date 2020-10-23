@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 //Made by Harriet
 
-//playing sounds when buttons are selected through keys uses ISelectHandler
 public class Soundfx : MonoBehaviour, ISelectHandler
 {
 

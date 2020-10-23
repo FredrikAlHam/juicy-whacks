@@ -13,7 +13,7 @@ public class MenuScripts : MonoBehaviour
     //Used to prevent multiples of the same level.
     private bool loadingLevel;
     public static bool ShouldPause = false;
-    bool gameDone;
+    //bool gameDone;
 
     //For Volume Options
     public AudioMixer mixerAmbience;
@@ -33,9 +33,6 @@ public class MenuScripts : MonoBehaviour
         //Enables the controls.
         controls = new Controls();
         controls.UI.Enable();
-
-
-
     }
 
     private void Awake()
