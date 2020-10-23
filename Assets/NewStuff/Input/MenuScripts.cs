@@ -26,6 +26,7 @@ public class MenuScripts : MonoBehaviour
 
     public void Start() 
     {
+        //Updates the vlume for the music mixer and the ambience mixer.
         mixerAmbience.SetFloat("AmbienceVol", Mathf.Log10(PlayerPrefs.GetFloat("AmbienceVolume", 0.75f)) * 20);
         mixerMusic.SetFloat("MusicVol", Mathf.Log10(PlayerPrefs.GetFloat("MusicVolume", 0.75f)) * 20);
 
@@ -40,7 +41,7 @@ public class MenuScripts : MonoBehaviour
     private void Awake()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false; //Fungerar inte om musen är utanför gameviewn i editorn bär spelet startas 
+        Cursor.visible = false; //Fungerar inte om musen är utanför gameviewn i editorn när spelet startas - Fredrik
     }
 
     public void Update()
@@ -118,15 +119,24 @@ public class MenuScripts : MonoBehaviour
             }
             #endregion
         }
+
+        //If the song aka the game is finished then..
+        /*if (GameSongPlayer.IsDone == true)
+        {
+        Score.instance.score
+        //load WinMenu scene
+        SceneManager.LoadSceneAsync("WinMenu");
+
+        }*/
     }
 
     #region not used
     //This function makes the variable slower false - it is used to prevent the scenes from switching to and fro uncontrollably fast when pressing space;
-   /* public void SlowerFunction() 
-    {
-        slower = false;
-    }*/
-    #endregion 
+    /* public void SlowerFunction() 
+     {
+         slower = false;
+     }*/
+    #endregion
 
     #region functions for the MainMenu
     //This function loads the "game" scene.

@@ -24,9 +24,7 @@ public class Soundfx : MonoBehaviour, ISelectHandler
 
 
     public bool controlSliders = false;
-    [SerializeField]
     public Slider sliderAmbience;
-    [SerializeField]
     public Slider sliderMusic;
 
     // Start is called before the first frame update
