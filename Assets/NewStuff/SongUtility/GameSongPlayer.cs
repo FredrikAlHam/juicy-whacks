@@ -58,6 +58,7 @@ namespace AudioUtilities
 
         public void Play(Song song)
         {
+            IsDone = false;
             Debug.Log($"Playing {song.songName}");
             player = new SongPlayer();
             player.Play(song);
